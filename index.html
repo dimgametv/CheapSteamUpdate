@@ -138,8 +138,8 @@
         }
 
         .giveaways-grid {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
@@ -386,8 +386,8 @@
         }
 
         .store-games {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
 
@@ -530,26 +530,86 @@
             
             .giveaways-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .store-games {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .section-title {
                 font-size: 2rem;
             }
 
-            .game-poster {
+            .game-poster, .giveaway-card {
                 height: 250px;
             }
 
-            .poster-info {
+            .poster-info, .giveaway-info-overlay {
                 padding: 20px;
             }
 
-            .poster-title {
-                font-size: 1.5rem;
+            .poster-title, .game-title {
+                font-size: 1.4rem;
             }
 
             .poster-price {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+
+            .game-description {
+                font-size: 0.9rem;
+            }
+
+            .participants, .time-left {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .giveaways-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .store-games {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .game-poster, .giveaway-card {
+                height: 200px;
+            }
+
+            .poster-info, .giveaway-info-overlay {
+                padding: 15px;
+            }
+
+            .poster-title, .game-title {
+                font-size: 1.2rem;
+            }
+
+            .poster-price {
+                font-size: 1.1rem;
+            }
+
+            .poster-size {
+                font-size: 0.8rem;
+            }
+
+            .game-description {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            .participants, .time-left {
+                font-size: 0.8rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -988,5 +1048,5 @@
         initializeSampleData();
         showSection('giveaways');
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9955262cf4375959',t:'MTc2MTU5OTEwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99553560b6135959',t:'MTc2MTU5OTcyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
