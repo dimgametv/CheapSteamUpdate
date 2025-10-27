@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGiveaways - Gaming Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #000a1a 100%);
+            color: #00ffff;
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #ff0080;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff0080;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: 2px solid;
+            background: transparent;
+            color: inherit;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            border-color: #00ffff;
+            color: #00ffff;
+        }
+
+        .btn-primary:hover {
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 30px #00ffff;
+        }
+
+        .btn-secondary {
+            border-color: #ff0080;
+            color: #ff0080;
+        }
+
+        .btn-secondary:hover {
+            background: #ff0080;
+            color: #000;
+            box-shadow: 0 0 30px #ff0080;
+        }
+
+        .btn-success {
+            border-color: #00ff00;
+            color: #00ff00;
+        }
+
+        .btn-success:hover {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 30px #00ff00;
+        }
+
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ff0080;
+        }
+
+        .giveaways-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .giveaway-card {
+            display: block;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 300px;
+        }
+
+        .giveaway-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .giveaway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+            z-index: 3;
+        }
+
+        .giveaway-card:hover::before {
+            left: 100%;
+        }
+
+        .giveaway-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .giveaway-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .giveaway-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .giveaway-info-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 4;
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ff0080;
+            align-self: flex-start;
+        }
+
+        .game-description {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .giveaway-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .participants {
+            color: #00ff00;
+            font-weight: 700;
+        }
+
+        .time-left {
+            color: #ffff00;
+            font-weight: 700;
+        }
+
+        .giveaway-button {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .admin-panel {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff0080;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .admin-panel:not(:first-child) {
+            margin-top: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00ffff;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            font-family: 'Orbitron', monospace;
+            border-radius: 5px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .admin-giveaways {
+            margin-top: 30px;
+        }
+
+        .admin-giveaway-item {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #666;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #1a0033, #000a1a);
+            border: 2px solid #00ffff;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #ff0080;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ff00;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #00ff00;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            margin-top: 5px;
+        }
+
+        .store-games {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .game-poster {
+            display: block;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 300px;
+        }
+
+        .game-poster:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .game-poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+            z-index: 3;
+        }
+
+        .game-poster:hover::before {
+            left: 100%;
+        }
+
+        .poster-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .poster-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .poster-image svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .poster-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .poster-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 4;
+        }
+
+        .poster-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ff0080;
+            align-self: flex-start;
+        }
+
+        .poster-description {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .poster-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .poster-price {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #00ff00;
+        }
+
+        .poster-size {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffff00;
+        }
+
+        .poster-buy-button {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .giveaways-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .game-poster {
+                height: 250px;
+            }
+
+            .poster-info {
+                padding: 20px;
+            }
+
+            .poster-title {
+                font-size: 1.5rem;
+            }
+
+            .poster-price {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">⚡ CYBERGIVEAWAYS</div>
+                <div class="nav-buttons">
+                    <button class="btn btn-primary" onclick="showSection('giveaways')">Giveaways</button>
+                    <button class="btn btn-primary" onclick="showSection('store')">Store</button>
+                    <button class="btn btn-secondary" onclick="showSection('admin')">Admin Panel</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Giveaways Section -->
+            <section id="giveaways-section" class="section">
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-giveaways">0</div>
+                        <div class="stat-label">Active Giveaways</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-participants">0</div>
+                        <div class="stat-label">Total Participants</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-winners">0</div>
+                        <div class="stat-label">Winners Selected</div>
+                    </div>
+                </div>
+
+                <div class="giveaways-grid" id="giveaways-container">
+                    <!-- Giveaways will be populated here -->
+                </div>
+            </section>
+
+            <!-- Store Section -->
+            <section id="store-section" class="section hidden">
+                
+                <div class="store-games">
+                    <div class="game-poster">
+                        <div class="poster-image">
+                            <img src="https://picsum.photos/1600/400?random=1" alt="Cyber Warfare 2084 Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="poster-info">
+                            <h3 class="poster-title">Cyber Warfare 2084: Ultimate Edition</h3>
+                            <div class="poster-bottom">
+                                <div class="poster-price">$59.99</div>
+                                <div class="poster-size">45.2 GB</div>
+                            </div>
+                            <div class="poster-buy-button">
+                                <button class="btn btn-success">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-poster">
+                        <div class="poster-image">
+                            <img src="https://picsum.photos/1600/400?random=2" alt="Neon Racers Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="poster-info">
+                            <h3 class="poster-title">Neon Racers: Speed of Light Edition</h3>
+                            <div class="poster-bottom">
+                                <div class="poster-price">$49.99</div>
+                                <div class="poster-size">32.8 GB</div>
+                            </div>
+                            <div class="poster-buy-button">
+                                <button class="btn btn-success">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Panel Section -->
+            <section id="admin-section" class="section hidden">
+                <div class="admin-panel">
+                    <h3 style="color: #ff0080; margin-bottom: 20px;">CREATE NEW GIVEAWAY</h3>
+                    
+                    <form id="giveaway-form">
+                        <div class="form-group">
+                            <label for="game-name">Game Title</label>
+                            <input type="text" id="game-name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="game-desc">Game Description</label>
+                            <textarea id="game-desc" class="form-control" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="end-date">End Date & Time</label>
+                            <input type="datetime-local" id="end-date" class="form-control" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success">CREATE GIVEAWAY</button>
+                    </form>
+                </div>
+
+                <div class="admin-panel">
+                    <h3 style="color: #ff0080; margin-bottom: 20px;">MANAGE GIVEAWAYS</h3>
+                    <div class="admin-giveaways" id="admin-giveaways-list">
+                        <!-- Admin giveaway list will be populated here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Participation Modal -->
+    <div id="participation-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 style="color: #00ffff; margin-bottom: 20px;">Enter Giveaway</h2>
+            <p id="modal-game-title" style="color: #ff0080; font-size: 1.2rem; margin-bottom: 20px;"></p>
+            
+            <div class="form-group">
+                <label for="participation-code">Participation Code</label>
+                <input type="text" id="participation-code" class="form-control" placeholder="Enter your participation code" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="participant-name">Your Name</label>
+                <input type="text" id="participant-name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="steam-id">Steam ID</label>
+                <input type="text" id="steam-id" class="form-control" placeholder="Enter your Steam ID" required>
+            </div>
+            
+            <button class="btn btn-success" onclick="enterGiveaway()">ENTER GIVEAWAY</button>
+        </div>
+    </div>
+
+    <!-- Winner Selection Modal -->
+    <div id="winner-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 style="color: #00ff00; margin-bottom: 20px;">🎉 WINNER SELECTED!</h2>
+            <p id="winner-info" style="color: #ffff00; font-size: 1.2rem; margin-bottom: 20px;"></p>
+            <button class="btn btn-primary" onclick="closeModal()">AWESOME!</button>
+        </div>
+    </div>
+
+    <script>
+        let giveaways = [];
+        let currentGiveawayId = null;
+        let nextId = 1;
+
+        // Initialize with sample data
+        function initializeSampleData() {
+            const sampleGiveaways = [
+                {
+                    id: nextId++,
+                    title: "Cyberpunk 2077: Phantom Liberty",
+                    description: "Experience the ultimate cyberpunk adventure in Night City with this epic expansion pack.",
+                    endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+                    participants: [],
+                    winner: null,
+                    active: true
+                },
+                {
+                    id: nextId++,
+                    title: "Elden Ring Deluxe Edition",
+                    description: "Embark on a journey through the Lands Between in this critically acclaimed action RPG.",
+                    endDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+                    participants: [],
+                    winner: null,
+                    active: true
+                }
+            ];
+            
+            giveaways = sampleGiveaways;
+            updateDisplay();
+        }
+
+        function showSection(section) {
+            document.getElementById('giveaways-section').classList.add('hidden');
+            document.getElementById('store-section').classList.add('hidden');
+            document.getElementById('admin-section').classList.add('hidden');
+            
+            if (section === 'giveaways') {
+                document.getElementById('giveaways-section').classList.remove('hidden');
+            } else if (section === 'store') {
+                document.getElementById('store-section').classList.remove('hidden');
+            } else if (section === 'admin') {
+                document.getElementById('admin-section').classList.remove('hidden');
+            }
+            
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            updateGiveawaysDisplay();
+            updateAdminDisplay();
+            updateStats();
+        }
+
+        function updateStats() {
+            const activeGiveaways = giveaways.filter(g => g.active).length;
+            const totalParticipants = giveaways.reduce((sum, g) => sum + g.participants.length, 0);
+            const totalWinners = giveaways.filter(g => g.winner).length;
+            
+            document.getElementById('total-giveaways').textContent = activeGiveaways;
+            document.getElementById('total-participants').textContent = totalParticipants;
+            document.getElementById('total-winners').textContent = totalWinners;
+        }
+
+        function updateGiveawaysDisplay() {
+            const container = document.getElementById('giveaways-container');
+            const activeGiveaways = giveaways.filter(g => g.active);
+            
+            if (activeGiveaways.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #666; font-size: 1.2rem;">No active giveaways at the moment. Check back soon!</div>';
+                return;
+            }
+            
+            container.innerHTML = activeGiveaways.map((giveaway, index) => {
+                const timeLeft = getTimeLeft(giveaway.endDate);
+                const isExpired = new Date() > giveaway.endDate;
+                
+                return `
+                    <div class="giveaway-card">
+                        <div class="giveaway-image">
+                            <img src="https://picsum.photos/1600/400?random=${index + 10}" alt="${giveaway.title} Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        </div>
+                        <div class="giveaway-info-overlay">
+                            <h3 class="game-title">${giveaway.title}</h3>
+                            <p class="game-description">${giveaway.description}</p>
+                            <div class="giveaway-info">
+                                <span class="participants">👥 ${giveaway.participants.length} participants</span>
+                                <span class="time-left">${isExpired ? '⏰ ENDED' : '⏰ ' + timeLeft}</span>
+                            </div>
+                            ${giveaway.winner ? 
+                                `<div style="color: #00ff00; font-weight: 700; margin-bottom: 15px;">🎉 Winner: ${giveaway.winner.name}</div>` : 
+                                ''
+                            }
+                            <div class="giveaway-button">
+                                ${!isExpired && !giveaway.winner ? 
+                                    `<button class="btn btn-primary" onclick="openParticipationModal(${giveaway.id})">ENTER GIVEAWAY</button>` :
+                                    isExpired && !giveaway.winner ?
+                                    `<button class="btn btn-secondary" onclick="selectWinner(${giveaway.id})">SELECT WINNER</button>` :
+                                    `<button class="btn" style="border-color: #666; color: #666;" disabled>GIVEAWAY ENDED</button>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateAdminDisplay() {
+            const container = document.getElementById('admin-giveaways-list');
+            
+            if (giveaways.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #666;">No giveaways created yet.</div>';
+                return;
+            }
+            
+            container.innerHTML = giveaways.map(giveaway => `
+                <div class="admin-giveaway-item">
+                    <div>
+                        <strong style="color: #ff0080;">${giveaway.title}</strong>
+                        <div style="color: #cccccc; font-size: 0.9rem;">
+                            Participants: ${giveaway.participants.length} | 
+                            Status: ${giveaway.active ? 'Active' : 'Inactive'} |
+                            ${giveaway.winner ? `Winner: ${giveaway.winner.name}` : 'No winner yet'}
+                        </div>
+                    </div>
+                    <div>
+                        ${giveaway.active ? 
+                            `<button class="btn btn-secondary" onclick="endGiveaway(${giveaway.id})" style="margin-right: 10px;">END</button>` : 
+                            ''
+                        }
+                        <button class="btn btn-secondary" onclick="deleteGiveaway(${giveaway.id})">DELETE</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getTimeLeft(endDate) {
+            const now = new Date();
+            const diff = endDate - now;
+            
+            if (diff <= 0) return 'ENDED';
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (days > 0) return `${days}d ${hours}h`;
+            if (hours > 0) return `${hours}h ${minutes}m`;
+            return `${minutes}m`;
+        }
+
+        function openParticipationModal(giveawayId) {
+            const giveaway = giveaways.find(g => g.id === giveawayId);
+            if (!giveaway) return;
+            
+            currentGiveawayId = giveawayId;
+            document.getElementById('modal-game-title').textContent = giveaway.title;
+            document.getElementById('participation-modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('participation-modal').style.display = 'none';
+            document.getElementById('winner-modal').style.display = 'none';
+            currentGiveawayId = null;
+            
+            // Clear form
+            document.getElementById('participation-code').value = '';
+            document.getElementById('participant-name').value = '';
+            document.getElementById('steam-id').value = '';
+        }
+
+        function enterGiveaway() {
+            const participationCode = document.getElementById('participation-code').value.trim();
+            const name = document.getElementById('participant-name').value.trim();
+            const steamId = document.getElementById('steam-id').value.trim();
+            
+            if (!participationCode || !name || !steamId) {
+                alert('Please fill in all fields!');
+                return;
+            }
+            
+            const giveaway = giveaways.find(g => g.id === currentGiveawayId);
+            if (!giveaway) return;
+            
+            // Check if already participated (by Steam ID)
+            if (giveaway.participants.some(p => p.steamId === steamId)) {
+                alert('This Steam ID has already entered this giveaway!');
+                return;
+            }
+            
+            // Check if participation code is already used
+            if (giveaway.participants.some(p => p.participationCode === participationCode)) {
+                alert('This participation code has already been used!');
+                return;
+            }
+            
+            giveaway.participants.push({ participationCode, name, steamId });
+            closeModal();
+            updateDisplay();
+            
+            // Show success message
+            alert(`Successfully entered the giveaway for ${giveaway.title}! Good luck! 🎮`);
+        }
+
+        function selectWinner(giveawayId) {
+            const giveaway = giveaways.find(g => g.id === giveawayId);
+            if (!giveaway || giveaway.participants.length === 0) {
+                alert('No participants to select from!');
+                return;
+            }
+            
+            const randomIndex = Math.floor(Math.random() * giveaway.participants.length);
+            const winner = giveaway.participants[randomIndex];
+            giveaway.winner = winner;
+            giveaway.active = false;
+            
+            document.getElementById('winner-info').textContent = `Congratulations to ${winner.name} (Steam ID: ${winner.steamId}) for winning ${giveaway.title}!`;
+            document.getElementById('winner-modal').style.display = 'block';
+            
+            updateDisplay();
+        }
+
+        function endGiveaway(giveawayId) {
+            const giveaway = giveaways.find(g => g.id === giveawayId);
+            if (giveaway) {
+                giveaway.active = false;
+                updateDisplay();
+            }
+        }
+
+        function deleteGiveaway(giveawayId) {
+            giveaways = giveaways.filter(g => g.id !== giveawayId);
+            updateDisplay();
+        }
+
+        // Admin form submission
+        document.getElementById('giveaway-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('game-name').value.trim();
+            const description = document.getElementById('game-desc').value.trim();
+            const endDate = new Date(document.getElementById('end-date').value);
+            
+            if (!title || !description || !endDate || endDate <= new Date()) {
+                alert('Please fill in all fields with valid data!');
+                return;
+            }
+            
+            const newGiveaway = {
+                id: nextId++,
+                title,
+                description,
+                endDate,
+                participants: [],
+                winner: null,
+                active: true
+            };
+            
+            giveaways.push(newGiveaway);
+            
+            // Clear form
+            document.getElementById('giveaway-form').reset();
+            
+            updateDisplay();
+            alert(`Giveaway "${title}" created successfully! 🎉`);
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const participationModal = document.getElementById('participation-modal');
+            const winnerModal = document.getElementById('winner-modal');
+            
+            if (e.target === participationModal || e.target === winnerModal) {
+                closeModal();
+            }
+        });
+
+        // Update time left every minute
+        setInterval(updateDisplay, 60000);
+
+        // Initialize the app
+        initializeSampleData();
+        showSection('giveaways');
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9955262cf4375959',t:'MTc2MTU5OTEwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
