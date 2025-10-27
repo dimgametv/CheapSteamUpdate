@@ -153,11 +153,17 @@
             transition: all 0.3s ease;
             position: relative;
             height: 300px;
+            cursor: pointer;
         }
 
         .giveaway-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .giveaway-card.ended {
+            cursor: default;
+            opacity: 0.7;
         }
 
         .giveaway-card::before {
@@ -251,13 +257,6 @@
         .time-left {
             color: #ffff00;
             font-weight: 700;
-        }
-
-        .giveaway-button {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .admin-panel {
@@ -445,15 +444,6 @@
             z-index: 1;
         }
 
-        .poster-image svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-        }
-
         .poster-image img {
             position: absolute;
             top: 0;
@@ -634,7 +624,6 @@
         <div class="container">
             <!-- Giveaways Section -->
             <section id="giveaways-section" class="section">
-                
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number" id="total-giveaways">0</div>
@@ -657,7 +646,6 @@
 
             <!-- Store Section -->
             <section id="store-section" class="section hidden">
-                
                 <div class="store-games">
                     <div class="game-poster">
                         <div class="poster-image">
@@ -841,8 +829,14 @@
                 const timeLeft = getTimeLeft(giveaway.endDate);
                 const isExpired = new Date() > giveaway.endDate;
                 
+                const clickHandler = !isExpired && !giveaway.winner ? 
+                    `onclick="openParticipationModal(${giveaway.id})"` : 
+                    '';
+                
+                const cardClass = isExpired || giveaway.winner ? 'giveaway-card ended' : 'giveaway-card';
+                
                 return `
-                    <div class="giveaway-card">
+                    <div class="${cardClass}" ${clickHandler}>
                         <div class="giveaway-image">
                             <img src="https://picsum.photos/1600/400?random=${index + 10}" alt="${giveaway.title} Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                         </div>
@@ -857,14 +851,10 @@
                                 `<div style="color: #00ff00; font-weight: 700; margin-bottom: 15px;">🎉 Winner: ${giveaway.winner.name}</div>` : 
                                 ''
                             }
-                            <div class="giveaway-button">
-                                ${!isExpired && !giveaway.winner ? 
-                                    `<button class="btn btn-primary" onclick="openParticipationModal(${giveaway.id})">ENTER GIVEAWAY</button>` :
-                                    isExpired && !giveaway.winner ?
-                                    `<button class="btn btn-secondary" onclick="selectWinner(${giveaway.id})">SELECT WINNER</button>` :
-                                    `<button class="btn" style="border-color: #666; color: #666;" disabled>GIVEAWAY ENDED</button>`
-                                }
-                            </div>
+                            ${!isExpired && !giveaway.winner ? 
+                                `<div style="color: #ffff00; font-size: 0.9rem; text-align: center; margin-top: 10px;">Click to enter giveaway</div>` :
+                                ''
+                            }
                         </div>
                     </div>
                 `;
@@ -890,6 +880,10 @@
                         </div>
                     </div>
                     <div>
+                        ${giveaway.active && new Date() > giveaway.endDate && !giveaway.winner ? 
+                            `<button class="btn btn-success" onclick="selectWinner(${giveaway.id})" style="margin-right: 10px;">SELECT WINNER</button>` : 
+                            ''
+                        }
                         ${giveaway.active ? 
                             `<button class="btn btn-secondary" onclick="endGiveaway(${giveaway.id})" style="margin-right: 10px;">END</button>` : 
                             ''
@@ -941,7 +935,8 @@
             const steamId = document.getElementById('steam-id').value.trim();
             
             if (!participationCode || !name || !steamId) {
-                alert('Please fill in all fields!');
+                // Create custom notification instead of alert
+                showNotification('Please fill in all fields!', 'error');
                 return;
             }
             
@@ -950,13 +945,13 @@
             
             // Check if already participated (by Steam ID)
             if (giveaway.participants.some(p => p.steamId === steamId)) {
-                alert('This Steam ID has already entered this giveaway!');
+                showNotification('This Steam ID has already entered this giveaway!', 'error');
                 return;
             }
             
             // Check if participation code is already used
             if (giveaway.participants.some(p => p.participationCode === participationCode)) {
-                alert('This participation code has already been used!');
+                showNotification('This participation code has already been used!', 'error');
                 return;
             }
             
@@ -965,13 +960,13 @@
             updateDisplay();
             
             // Show success message
-            alert(`Successfully entered the giveaway for ${giveaway.title}! Good luck! 🎮`);
+            showNotification(`Successfully entered the giveaway for ${giveaway.title}! Good luck! 🎮`, 'success');
         }
 
         function selectWinner(giveawayId) {
             const giveaway = giveaways.find(g => g.id === giveawayId);
             if (!giveaway || giveaway.participants.length === 0) {
-                alert('No participants to select from!');
+                showNotification('No participants to select from!', 'error');
                 return;
             }
             
@@ -999,6 +994,35 @@
             updateDisplay();
         }
 
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 8px;
+                color: white;
+                font-family: 'Orbitron', monospace;
+                font-weight: 700;
+                z-index: 10000;
+                max-width: 400px;
+                word-wrap: break-word;
+                ${type === 'success' ? 'background: rgba(0, 255, 0, 0.9); border: 2px solid #00ff00;' : 'background: rgba(255, 0, 128, 0.9); border: 2px solid #ff0080;'}
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 4 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 4000);
+        }
+
         // Admin form submission
         document.getElementById('giveaway-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1008,7 +1032,7 @@
             const endDate = new Date(document.getElementById('end-date').value);
             
             if (!title || !description || !endDate || endDate <= new Date()) {
-                alert('Please fill in all fields with valid data!');
+                showNotification('Please fill in all fields with valid data!', 'error');
                 return;
             }
             
@@ -1028,7 +1052,7 @@
             document.getElementById('giveaway-form').reset();
             
             updateDisplay();
-            alert(`Giveaway "${title}" created successfully! 🎉`);
+            showNotification(`Giveaway "${title}" created successfully! 🎉`, 'success');
         });
 
         // Close modal when clicking outside
@@ -1048,5 +1072,5 @@
         initializeSampleData();
         showSection('giveaways');
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99553560b6135959',t:'MTc2MTU5OTcyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'995546b810d05959',t:'MTc2MTYwMDQzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
