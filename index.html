@@ -633,10 +633,6 @@
                         <div class="stat-number" id="total-participants">0</div>
                         <div class="stat-label">Total Participants</div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="total-winners">0</div>
-                        <div class="stat-label">Winners Selected</div>
-                    </div>
                 </div>
 
                 <div class="giveaways-grid" id="giveaways-container">
@@ -721,7 +717,11 @@
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal()">&times;</button>
             <h2 style="color: #00ffff; margin-bottom: 20px;">Enter Giveaway</h2>
-            <p id="modal-game-title" style="color: #ff0080; font-size: 1.2rem; margin-bottom: 20px;"></p>
+            <p id="modal-game-title" style="color: #ff0080; font-size: 1.2rem; margin-bottom: 10px;"></p>
+            <div id="modal-giveaway-info" style="display: flex; justify-content: space-between; margin-bottom: 20px; color: #cccccc; font-size: 0.9rem;">
+                <span id="modal-participants"></span>
+                <span id="modal-time-left"></span>
+            </div>
             
             <div class="form-group">
                 <label for="participation-code">Participation Code</label>
@@ -843,10 +843,7 @@
                         <div class="giveaway-info-overlay">
                             <h3 class="game-title">${giveaway.title}</h3>
                             <p class="game-description">${giveaway.description}</p>
-                            <div class="giveaway-info">
-                                <span class="participants">👥 ${giveaway.participants.length} participants</span>
-                                <span class="time-left">${isExpired ? '⏰ ENDED' : '⏰ ' + timeLeft}</span>
-                            </div>
+
                             ${giveaway.winner ? 
                                 `<div style="color: #00ff00; font-weight: 700; margin-bottom: 15px;">🎉 Winner: ${giveaway.winner.name}</div>` : 
                                 ''
@@ -915,6 +912,8 @@
             
             currentGiveawayId = giveawayId;
             document.getElementById('modal-game-title').textContent = giveaway.title;
+            document.getElementById('modal-participants').textContent = `👥 ${giveaway.participants.length} participants`;
+            document.getElementById('modal-time-left').textContent = `⏰ ${getTimeLeft(giveaway.endDate)}`;
             document.getElementById('participation-modal').style.display = 'block';
         }
 
@@ -1072,5 +1071,5 @@
         initializeSampleData();
         showSection('giveaways');
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'995546b810d05959',t:'MTc2MTYwMDQzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99554e90965b5959',t:'MTc2MTYwMDc1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
