@@ -940,7 +940,7 @@
                     id: nextId++,
                     title: "Cyberpunk 2077: Phantom Liberty",
                     description: "Experience the ultimate cyberpunk adventure in Night City with this epic expansion pack.",
-                    image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/1.jpg",
+                    image: "img/gtavenhanced.png",
                     endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
                     participants: [],
                     winner: null,
@@ -950,7 +950,7 @@
                     id: nextId++,
                     title: "Elden Ring Deluxe Edition",
                     description: "Embark on a journey through the Lands Between in this critically acclaimed action RPG.",
-                    image: "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/1.jpg",
+                    image: "img/rdr2.png",
                     endDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
                     participants: [],
                     winner: null,
@@ -996,7 +996,8 @@
             container.innerHTML = gamesToShow.map(game => `
                 <div class="game-poster">
                     <div class="poster-image">
-                        <img src="https://picsum.photos/1600/400?random=${game.image}" alt="${game.title} Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        <img src="${giveaway.image || 'https://via.placeholder.com/1600x400?text=No+Image'}" alt="${giveaway.title} Poster"
+     onerror="this.src='https://via.placeholder.com/1600x400?text=No+Image'; this.alt='Image failed to load';">
                     </div>
                     <div class="poster-info">
                         <h3 class="poster-title">${game.title}</h3>
