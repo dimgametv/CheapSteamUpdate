@@ -1071,7 +1071,7 @@
                 return `
                     <div class="${cardClass}" ${clickHandler}>
                         <div class="giveaway-image">
-                            <img src="https://picsum.photos/1600/400?random=${index + 10}" alt="${giveaway.title} Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <img src="${giveaway.image}" alt="${giveaway.title} Background" onerror="this.src='images/default.png';">
                         </div>
                         <div class="giveaway-info-overlay">
                             <h3 class="game-title">${giveaway.title}</h3>
