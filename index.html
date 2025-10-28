@@ -844,6 +844,11 @@
                             <label for="end-date">End Date & Time</label>
                             <input type="datetime-local" id="end-date" class="form-control" required>
                         </div>
+
+                        <div class="form-group">
+    <label for="game-image">Game Poster Image URL</label>
+    <input type="url" id="game-image" class="form-control" placeholder="https://example.com/image.jpg">
+</div>
                         
                         <button type="submit" class="btn btn-success">CREATE GIVEAWAY</button>
                     </form>
@@ -935,6 +940,7 @@
                     id: nextId++,
                     title: "Cyberpunk 2077: Phantom Liberty",
                     description: "Experience the ultimate cyberpunk adventure in Night City with this epic expansion pack.",
+                    image: "img/gtavenhanced.png",
                     endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
                     participants: [],
                     winner: null,
@@ -944,6 +950,7 @@
                     id: nextId++,
                     title: "Elden Ring Deluxe Edition",
                     description: "Embark on a journey through the Lands Between in this critically acclaimed action RPG.",
+                    image: "img/rdr2.png",
                     endDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
                     participants: [],
                     winner: null,
@@ -989,7 +996,8 @@
             container.innerHTML = gamesToShow.map(game => `
                 <div class="game-poster">
                     <div class="poster-image">
-                        <img src="https://picsum.photos/1600/400?random=${game.image}" alt="${game.title} Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                        <img src="${giveaway.image || 'https://via.placeholder.com/1600x400?text=No+Image'}" alt="${giveaway.title} Poster"
+     onerror="this.src='https://via.placeholder.com/1600x400?text=No+Image'; this.alt='Image failed to load';">
                     </div>
                     <div class="poster-info">
                         <h3 class="poster-title">${game.title}</h3>
@@ -1085,7 +1093,8 @@
                 return `
                     <div class="${cardClass}" ${clickHandler}>
                         <div class="giveaway-image">
-                            <img src="https://picsum.photos/1600/400?random=${index + 10}" alt="${giveaway.title} Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            <img src="${giveaway.image || 'https://via.placeholder.com/1600x400?text=No+Image'}" alt="${giveaway.title} Background"
+                             onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                         </div>
                         <div class="giveaway-info-overlay">
                             <h3 class="game-title">${giveaway.title}</h3>
@@ -1276,6 +1285,7 @@
             const title = document.getElementById('game-name').value.trim();
             const description = document.getElementById('game-desc').value.trim();
             const endDate = new Date(document.getElementById('end-date').value);
+            const image = document.getElementById('game-image').value.trim() || 'https://via.placeholder.com/1600x400?text=No+Image';
             
             if (!title || !description || !endDate || endDate <= new Date()) {
                 showNotification('Please fill in all fields with valid data!', 'error');
@@ -1286,6 +1296,7 @@
                 id: nextId++,
                 title,
                 description,
+                image,
                 endDate,
                 participants: [],
                 winner: null,
