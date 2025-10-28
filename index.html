@@ -1008,7 +1008,7 @@
             if (filteredGames.length > 0) {
                 searchResults.innerHTML = filteredGames.slice(0, 8).map(game => `
                     <div class="search-result-item" onclick="selectGame('${game.title}')">
-                        <div class="search-result-image" style="background-image: url('https://picsum.photos/120/80?random=${game.image}')"></div>
+                        <div class="search-result-image" style="background-image: url('${game.image}')"></div>
                         <div class="search-result-info">
                             <div class="search-result-title">${game.title}</div>
                             <div class="search-result-price">${game.price}</div>
