@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CheapSteam - Gaming Paradise</title>
+	<link rel="preload" as="image" href="images/s1.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -975,7 +976,7 @@
             container.innerHTML = gamesToShow.map(game => `
                 <div class="game-poster">
                     <div class="poster-image">
-                       <img src="${game.image}" alt="${game.title}" onerror="this.style.display='none'">
+                       <img src="${game.image}" alt="${game.title}" loading="eager" onerror="this.style.display='none'">
                     </div>
                     <div class="poster-info">
                         <h3 class="poster-title">${game.title}</h3>
@@ -1071,7 +1072,7 @@
                 return `
                     <div class="${cardClass}" ${clickHandler}>
                         <div class="giveaway-image">
-                            <img src="${giveaway.image}" alt="${giveaway.title} Background" onerror="this.src='images/default.png';">
+                            <img src="${giveaway.image}" alt="${giveaway.title}" loading="eager" onerror="this.src='images/default.png';">
                         </div>
                         <div class="giveaway-info-overlay">
                             <h3 class="game-title">${giveaway.title}</h3>
