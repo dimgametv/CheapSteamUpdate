@@ -906,10 +906,10 @@
 
         // Games database for store
         const storeGames = [
-            { id: 1, title: "Cyber Warfare 2084: Ultimate Edition", price: "$59.99", size: "45.2 GB", image: 1 },
-            { id: 2, title: "Neon Racers: Speed of Light Edition", price: "$49.99", size: "32.8 GB", image: 2 },
-            { id: 3, title: "Assassin's Creed Valhalla", price: "$39.99", size: "50.1 GB", image: 3 },
-            { id: 4, title: "Call of Duty: Modern Warfare II", price: "$69.99", size: "125.0 GB", image: 4 }
+            { id: 1, title: "Cyber Warfare 2084: Ultimate Edition", price: "$59.99", size: "45.2 GB", image: "images/s1.png" },
+            { id: 2, title: "Neon Racers: Speed of Light Edition", price: "$49.99", size: "32.8 GB", image: "images/s1.png" },
+            { id: 3, title: "Assassin's Creed Valhalla", price: "$39.99", size: "50.1 GB", image: "images/s1.png" },
+            { id: 4, title: "Call of Duty: Modern Warfare II", price: "$69.99", size: "125.0 GB", image: "images/s1.png" }
         ];
 
         // Initialize with sample data
@@ -919,6 +919,7 @@
                     id: nextId++,
                     title: "Cyberpunk 2077: Phantom Liberty",
                     description: "Experience the ultimate cyberpunk adventure in Night City with this epic expansion pack.",
+					image: "images/s1.png",
                     endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
                     participants: [],
                     winner: null,
@@ -928,6 +929,7 @@
                     id: nextId++,
                     title: "Elden Ring Deluxe Edition",
                     description: "Embark on a journey through the Lands Between in this critically acclaimed action RPG.",
+					image: "images/s1.png",
                     endDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
                     participants: [],
                     winner: null,
@@ -973,7 +975,7 @@
             container.innerHTML = gamesToShow.map(game => `
                 <div class="game-poster">
                     <div class="poster-image">
-                        <img src="https://picsum.photos/1600/400?random=${game.image}" alt="${game.title} Background" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                       <img src="${game.image}" alt="${game.title}" onerror="this.style.display='none'">
                     </div>
                     <div class="poster-info">
                         <h3 class="poster-title">${game.title}</h3>
