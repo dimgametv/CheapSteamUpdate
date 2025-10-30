@@ -230,6 +230,11 @@
                 padding-bottom: 80px;
             }
             
+            /* Add bottom padding to footer for mobile nav */
+            footer {
+                padding-bottom: 100px;
+            }
+            
             /* Game cards text */
             .game-card h3 {
                 font-size: 0.75rem !important;
@@ -250,8 +255,8 @@
             
             /* Cyber buttons */
             .cyber-button {
-                padding: 0.5rem 1rem !important;
-                font-size: 0.75rem !important;
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
             }
             
             /* Side menu adjustments */
@@ -309,8 +314,8 @@
             }
             
             .tab-button {
-                padding: 0.375rem 0.75rem !important;
-                font-size: 0.625rem !important;
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
             }
             
             .game-card h3 {
@@ -318,8 +323,8 @@
             }
             
             .cyber-button {
-                padding: 0.375rem 0.75rem !important;
-                font-size: 0.625rem !important;
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
             }
             
             .banner-slider {
@@ -395,6 +400,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
         }
         
         .cyber-button:hover {
@@ -561,6 +568,8 @@
             color: #888;
             border: none;
             transition: all 0.3s ease;
+            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
         }
         
         .tab-button.active {
@@ -777,6 +786,11 @@
                 padding-bottom: 80px;
             }
             
+            /* Add bottom padding to footer for mobile nav */
+            footer {
+                padding-bottom: 100px;
+            }
+            
             /* Game cards text */
             .game-card h3 {
                 font-size: 0.75rem !important;
@@ -797,8 +811,8 @@
             
             /* Cyber buttons */
             .cyber-button {
-                padding: 0.5rem 1rem !important;
-                font-size: 0.75rem !important;
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
             }
             
             /* Side menu adjustments */
@@ -856,8 +870,8 @@
             }
             
             .tab-button {
-                padding: 0.375rem 0.75rem !important;
-                font-size: 0.625rem !important;
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
             }
             
             .game-card h3 {
@@ -865,8 +879,8 @@
             }
             
             .cyber-button {
-                padding: 0.375rem 0.75rem !important;
-                font-size: 0.625rem !important;
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
             }
             
             .banner-slider {
@@ -930,8 +944,8 @@
     <div class="flex items-center justify-between mb-8">
      <h3 class="text-2xl font-bold font-['Orbitron'] text-cyan-400">MENU</h3><button class="hamburger active" id="close-menu"> <span></span> <span></span> <span></span> </button>
     </div>
-    <nav class="space-y-6"><button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="home">Home</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="store">Store</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="account">Account</button>
-     <div class="pt-4 border-t border-cyan-500" id="cart-section"><button class="cyber-button px-6 py-2 font-['Rajdhani'] w-full mb-3" id="cart-button">Cart (<span id="cart-count">0</span>)</button>
+    <nav class="space-y-6"><button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="home">Home</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="store">Store</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="game-fixes">Game Fixes</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="account">Account</button>
+     <div class="pt-4 border-t border-cyan-500" id="cart-section"><button class="cyber-button font-['Rajdhani'] w-full mb-3" id="cart-button">Cart (<span id="cart-count">0</span>)</button>
       <div id="cart-items" class="space-y-2 max-h-64 overflow-y-auto"><!-- Cart items will appear here -->
       </div>
      </div>
@@ -948,7 +962,7 @@
        CHEAPSTEAM
       </div>
      </div>
-     <div class="flex items-center justify-end w-1/3"><button class="cyber-button px-6 py-2 font-['Rajdhani'] mr-0" id="auth-button">Login</button>
+     <div class="flex items-center justify-end w-1/3"><button class="cyber-button font-['Rajdhani'] mr-0" id="auth-button">Login</button>
      </div>
     </div>
    </nav>
@@ -968,7 +982,7 @@
     <section class="py-6 px-4">
      <div class="max-w-7xl mx-auto"><!-- Desktop Tab Navigation -->
       <div class="desktop-tabs flex justify-center mb-6">
-       <div class="flex bg-black bg-opacity-50 border border-cyan-500 rounded-lg overflow-hidden"><button class="tab-button active px-6 py-3 font-['Orbitron'] font-bold text-sm transition-all duration-300" data-tab="featured"> FEATURED </button> <button class="tab-button px-6 py-3 font-['Orbitron'] font-bold text-sm transition-all duration-300" data-tab="new-releases"> NEW RELEASES </button> <button class="tab-button px-6 py-3 font-['Orbitron'] font-bold text-sm transition-all duration-300" data-tab="best-sellers"> BEST SELLERS </button>
+       <div class="flex bg-black bg-opacity-50 border border-cyan-500 rounded-lg overflow-hidden"><button class="tab-button active font-['Orbitron'] font-bold transition-all duration-300" data-tab="featured"> FEATURED </button> <button class="tab-button font-['Orbitron'] font-bold transition-all duration-300" data-tab="new-releases"> NEW RELEASES </button> <button class="tab-button font-['Orbitron'] font-bold transition-all duration-300" data-tab="best-sellers"> BEST SELLERS </button>
        </div>
       </div><!-- Search Section -->
       <div class="mb-8">
@@ -1052,6 +1066,18 @@
       </div>
      </div>
     </section>
+   </div><!-- Game Fixes Page -->
+   <div class="page-container" id="game-fixes-page">
+    <section class="py-8 px-4">
+     <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-8">
+       <h1 class="text-4xl font-bold font-['Orbitron'] text-cyan-400 mb-4">🔧 GAME FIXES</h1>
+       <p class="text-xl text-gray-300">Video tutorials to fix common gaming issues</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="game-fixes-grid"><!-- Game fix videos will be populated by JavaScript -->
+      </div>
+     </div>
+    </section>
    </div><!-- Account Page -->
    <div class="page-container" id="account-page">
     <section class="py-8 px-4">
@@ -1067,7 +1093,7 @@
           👤
          </div>
          <h3 class="text-2xl font-bold text-cyan-400 mb-4">Sign In Required</h3>
-         <p class="text-gray-300 mb-6">Please sign in to access your account features</p><button class="cyber-button px-8 py-3 font-['Rajdhani'] text-lg" id="account-login-btn">Sign In</button>
+         <p class="text-gray-300 mb-6">Please sign in to access your account features</p><button class="cyber-button font-['Rajdhani']" id="account-login-btn">Sign In</button>
         </div>
        </div><!-- Logged in state -->
        <div id="account-logged-in" class="hidden">
@@ -1101,11 +1127,29 @@
            <div class="flex justify-between"><span class="text-gray-400">Level</span> <span class="text-cyan-400 font-bold">15</span>
            </div>
           </div>
+         </div><!-- Favorite Games -->
+         <div class="game-card p-6 md:col-span-2">
+          <h3 class="text-xl font-bold text-cyan-400 mb-4">⭐ My Favorite Games</h3>
+          <div id="user-favorites">
+           <p class="text-gray-400 text-center py-4">No favorite games yet. Visit your Library to add favorites!</p>
+          </div>
          </div><!-- Participated Giveaways -->
          <div class="game-card p-6 md:col-span-2">
           <h3 class="text-xl font-bold text-cyan-400 mb-4">🎁 My Giveaway Entries</h3>
           <div id="user-giveaways">
            <p class="text-gray-400 text-center py-4">No giveaway entries yet. Visit the Store to enter giveaways!</p>
+          </div>
+         </div><!-- Helpful Videos -->
+         <div class="game-card p-6 md:col-span-2">
+          <h3 class="text-xl font-bold text-cyan-400 mb-4">✓ Helpful Videos</h3>
+          <div id="helpful-videos">
+           <p class="text-gray-400 text-center py-4">No videos marked as helpful yet. Visit Game Fixes to mark helpful tutorials!</p>
+          </div>
+         </div><!-- Saved Videos -->
+         <div class="game-card p-6 md:col-span-2">
+          <h3 class="text-xl font-bold text-cyan-400 mb-4">💾 Saved Videos</h3>
+          <div id="saved-videos">
+           <p class="text-gray-400 text-center py-4">No videos saved yet. Visit Game Fixes to save tutorials for later!</p>
           </div>
          </div><!-- Recent Activity -->
          <div class="game-card p-6 md:col-span-2">
@@ -1119,7 +1163,17 @@
      </div>
     </section>
    </div>
-  </main><!-- Mobile Game Category Navigation (only visible on home page) -->
+  </main><!-- Footer -->
+  <footer class="bg-black bg-opacity-80 border-t border-cyan-500 py-8 px-4">
+   <div class="max-w-7xl mx-auto">
+    <div class="text-center">
+     <div class="text-2xl font-bold font-['Orbitron'] text-cyan-400 mb-4">
+      CHEAPSTEAM
+     </div>
+     <p class="text-gray-500 text-sm">© 2024 CheapSteam. All rights reserved. Made by Akshar Chaudhary</p>
+    </div>
+   </div>
+  </footer><!-- Mobile Game Category Navigation (only visible on home page) -->
   <div class="mobile-game-tabs" id="mobile-game-tabs"><button class="tab-button active" data-tab="featured">
     <svg class="tab-icon" viewbox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
     </svg><span>FEATURED</span> </button> <button class="tab-button" data-tab="new-releases">
@@ -1157,6 +1211,18 @@
    <div class="flex items-center justify-center min-h-full p-4">
     <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-cyan-500 p-8 w-full max-w-lg relative cyber-glow"><button class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl" id="close-bundle-modal">×</button>
      <div id="bundle-content"><!-- Bundle details will be populated here -->
+     </div>
+    </div>
+   </div>
+  </div><!-- Game Settings Modal -->
+  <div class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 hidden" id="game-settings-modal">
+   <div class="flex items-center justify-center min-h-full p-4">
+    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-cyan-500 p-8 w-full max-w-md relative cyber-glow"><button class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl" id="close-game-settings-modal">×</button>
+     <div class="text-center mb-6">
+      <h2 class="text-2xl font-bold font-['Orbitron'] text-cyan-400 mb-2">GAME SETTINGS</h2>
+      <p class="text-gray-300 text-sm" id="settings-game-name">Game Name</p>
+     </div>
+     <div class="space-y-4"><button class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-['Rajdhani'] text-lg font-bold transition-colors flex items-center justify-center space-x-2" id="replace-game-btn"> <span>🔄</span> <span>REPLACE</span> </button> <button class="w-full py-3 px-4 bg-yellow-600 hover:bg-yellow-700 text-white font-['Rajdhani'] text-lg font-bold transition-colors flex items-center justify-center space-x-2" id="repair-game-btn"> <span>🔧</span> <span>REPAIR</span> </button> <button class="w-full py-3 px-4 bg-red-600 hover:bg-red-700 text-white font-['Rajdhani'] text-lg font-bold transition-colors flex items-center justify-center space-x-2" id="uninstall-game-btn"> <span>🗑️</span> <span>UNINSTALL</span> </button> <button class="w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 text-white font-['Rajdhani'] text-lg font-bold transition-colors" id="cancel-settings"> CANCEL </button>
      </div>
     </div>
    </div>
@@ -1208,6 +1274,14 @@
         </div>
        </form>
       </div>
+     </div>
+    </div>
+   </div>
+  </div><!-- Video Modal -->
+  <div class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 hidden" id="video-modal">
+   <div class="flex items-center justify-center min-h-full p-4">
+    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-cyan-500 p-8 w-full max-w-4xl relative cyber-glow max-h-[90vh] overflow-y-auto"><button class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl" id="close-video-modal">×</button>
+     <div id="video-content"><!-- Video content will be populated here -->
      </div>
     </div>
    </div>
@@ -1384,6 +1458,10 @@
         let cart = [];
         let cartTotal = 0;
         let orderHistory = [];
+        
+        // Favorites system
+        let favoriteGames = [];
+        let currentGameSettings = null;
 
         function addToCart(game) {
             // Check if game is already in cart
@@ -1481,6 +1559,106 @@
             `).join('');
             
             checkoutTotal.textContent = `$${cartTotal.toFixed(2)}`;
+        }
+
+        // Favorites management functions
+        function addToFavorites(game) {
+            // Check if game is already in favorites
+            const existingFavorite = favoriteGames.find(fav => fav.title === game.title);
+            if (existingFavorite) {
+                showNotification('Game already in favorites!', 'info');
+                return;
+            }
+
+            // Add to favorites with additional info
+            const favoriteGame = {
+                title: game.title,
+                dateAdded: new Date().toLocaleDateString(),
+                hoursPlayed: game.hoursPlayed || 0,
+                achievements: game.achievements || 0,
+                totalAchievements: game.totalAchievements || 0
+            };
+
+            favoriteGames.push(favoriteGame);
+            showNotification(`${game.title} added to favorites!`, 'success');
+            
+            // Re-render owned games to update button states
+            renderOwnedGames();
+            if (currentPage === 'library') {
+                renderAllOwnedGames();
+            }
+            
+            // Update account page if currently viewing it
+            if (currentPage === 'account') {
+                updateAccountPage();
+            }
+        }
+
+        function removeFromFavorites(gameTitle) {
+            favoriteGames = favoriteGames.filter(fav => fav.title !== gameTitle);
+            showNotification(`${gameTitle} removed from favorites!`, 'info');
+            
+            // Re-render owned games to update button states
+            renderOwnedGames();
+            if (currentPage === 'library') {
+                renderAllOwnedGames();
+            }
+            
+            // Update account page if currently viewing it
+            if (currentPage === 'account') {
+                updateAccountPage();
+            }
+        }
+
+        // Game settings modal functions
+        function showGameSettingsModal(game) {
+            const gameSettingsModal = document.getElementById('game-settings-modal');
+            const gameNameElement = document.getElementById('settings-game-name');
+            
+            currentGameSettings = game;
+            gameNameElement.textContent = game.title;
+            
+            gameSettingsModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideGameSettingsModal() {
+            const gameSettingsModal = document.getElementById('game-settings-modal');
+            gameSettingsModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            currentGameSettings = null;
+        }
+
+        function handleGameAction(action) {
+            if (!currentGameSettings) return;
+            
+            const gameName = currentGameSettings.title;
+            let message = '';
+            
+            switch (action) {
+                case 'replace':
+                    message = `${gameName} is being replaced. This may take a few minutes.`;
+                    break;
+                case 'repair':
+                    message = `${gameName} files are being repaired. Please wait...`;
+                    break;
+                case 'uninstall':
+                    message = `${gameName} has been uninstalled successfully.`;
+                    // Update the game status in ownedGames array
+                    const gameIndex = ownedGames.findIndex(g => g.title === gameName);
+                    if (gameIndex !== -1) {
+                        ownedGames[gameIndex].status = 'Not Installed';
+                    }
+                    // Re-render owned games to show updated status
+                    renderOwnedGames();
+                    if (currentPage === 'library') {
+                        renderAllOwnedGames();
+                    }
+                    break;
+            }
+            
+            hideGameSettingsModal();
+            showNotification(message, 'success');
         }
 
         function hidePaymentPage() {
@@ -1760,6 +1938,14 @@
                     <img src="${randomPoster}" alt="Gaming poster" class="w-full h-full object-cover opacity-30">
                 </div>
                 <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+                
+                <!-- Active Tag -->
+                <div class="absolute top-2 right-2 z-20">
+                    <span class="bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                        ✓ ACTIVE
+                    </span>
+                </div>
+                
                 <div class="relative z-10">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 leading-tight">${game.title}</h3>
@@ -1782,10 +1968,10 @@
                         </div>
                     </div>
                     <div class="flex space-x-2">
-                        <button class="cyber-button flex-1 py-1 font-['Rajdhani'] text-xs font-bold">
-                            ${game.status === 'Installed' ? 'PLAY' : 'INSTALL'}
+                        <button class="cyber-button flex-1 py-1 font-['Rajdhani'] text-xs font-bold favorite-btn" data-game='${JSON.stringify(game)}'>
+                            ${favoriteGames.some(fav => fav.title === game.title) ? '⭐ FAVORITED' : '⭐ ADD TO FAVORITE'}
                         </button>
-                        <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 text-xs font-bold transition-colors">
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 text-xs font-bold transition-colors game-settings-btn" data-game='${JSON.stringify(game)}'>
                             ⚙️
                         </button>
                     </div>
@@ -1793,6 +1979,57 @@
             `;
             
             return ownedGameCard;
+        }
+
+        // Create video card HTML for game fixes
+        function createVideoCard(video) {
+            const videoCard = document.createElement('div');
+            videoCard.className = 'game-card overflow-hidden relative w-full aspect-video cursor-pointer';
+            
+            // Get random poster background
+            const randomPoster = gamingPosters[Math.floor(Math.random() * gamingPosters.length)];
+            
+            videoCard.innerHTML = `
+                <div class="absolute inset-0">
+                    <img src="${randomPoster}" alt="Gaming poster" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+                
+                <!-- Play Button Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors">
+                        <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Duration Badge -->
+                <div class="absolute top-3 right-3 bg-black bg-opacity-80 text-white px-2 py-1 rounded text-sm font-bold">
+                    ${video.duration}
+                </div>
+                
+                <!-- Views Badge -->
+                <div class="absolute top-3 left-3 bg-cyan-600 bg-opacity-80 text-white px-2 py-1 rounded text-xs font-bold">
+                    👁 ${video.views} views
+                </div>
+                
+                <div class="relative z-10 h-full flex flex-col">
+                    <div class="flex-1"></div>
+                    <div class="bg-black bg-opacity-80 p-4 backdrop-blur-sm">
+                        <h3 class="text-lg font-bold font-['Orbitron'] text-cyan-400 mb-2 leading-tight">${video.title}</h3>
+                        <p class="text-gray-300 text-sm mb-2">${video.issue}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-yellow-400 text-sm font-semibold">🎮 ${video.game}</span>
+                            <button class="cyber-button px-4 py-2 font-['Rajdhani'] text-sm font-bold watch-video-btn" data-video='${JSON.stringify(video)}'>
+                                WATCH FIX
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return videoCard;
         }
 
         // Create game card HTML
@@ -1885,6 +2122,50 @@
 
         // All games for store page (including bundles at the top)
         const allGames = [...gameBundles, ...featuredGames, ...newReleases, ...bestSellers];
+
+        // Game Fixes Videos data
+        const gameFixVideos = [
+            {
+                title: "Neon Runner 2077 - Crash Fix",
+                game: "Neon Runner 2077",
+                issue: "Game crashes on startup",
+                duration: "3:45",
+                views: "125K",
+                description: "Learn how to fix the common startup crash issue in Neon Runner 2077. This tutorial covers driver updates, compatibility settings, and file verification.",
+                solution: "Update your graphics drivers to the latest version and run the game in compatibility mode for Windows 10. Also verify game files through Steam.",
+                isVideo: true
+            },
+            {
+                title: "Cyber Warfare Elite - FPS Drop Solution",
+                game: "Cyber Warfare Elite",
+                issue: "Low FPS and stuttering",
+                duration: "5:22",
+                views: "89K",
+                description: "Optimize your Cyber Warfare Elite performance with these proven settings. Boost your FPS and eliminate stuttering for smooth gameplay.",
+                solution: "Lower shadow quality to medium, disable motion blur, and set texture streaming to high. Also close unnecessary background applications.",
+                isVideo: true
+            },
+            {
+                title: "Matrix Hacker - Audio Bug Repair",
+                game: "Matrix Hacker",
+                issue: "No sound or audio glitches",
+                duration: "2:18",
+                views: "67K",
+                description: "Fix audio issues in Matrix Hacker including missing sound effects, distorted audio, and microphone problems in multiplayer.",
+                solution: "Update your audio drivers and set the game's audio format to 44.1kHz 16-bit. Disable audio enhancements in Windows sound settings.",
+                isVideo: true
+            },
+            {
+                title: "Digital Ghost - Save File Recovery",
+                game: "Digital Ghost",
+                issue: "Lost save files and progress",
+                duration: "4:33",
+                views: "156K",
+                description: "Recover your lost Digital Ghost save files and prevent future data loss. Learn about cloud saves and backup strategies.",
+                solution: "Check Steam Cloud saves first, then look in the local AppData folder. Enable Steam Cloud sync and create manual backups regularly.",
+                isVideo: true
+            }
+        ];
 
         // Active Giveaways data
         const activeGiveaways = [
@@ -2424,6 +2705,8 @@
                 renderAllGiveaways();
             } else if (pageId === 'library') {
                 renderAllOwnedGames();
+            } else if (pageId === 'game-fixes') {
+                renderGameFixes();
             }
             
             // Scroll to top
@@ -2447,11 +2730,97 @@
                 // Update giveaway entries
                 updateGiveawayEntries();
                 
+                // Update favorite games
+                updateFavoriteGames();
+                
+                // Update video sections
+                updateHelpfulVideos();
+                updateSavedVideos();
+                
                 // Update recent activity
                 updateRecentActivity();
             } else {
                 notLoggedIn.classList.remove('hidden');
                 loggedIn.classList.add('hidden');
+            }
+        }
+
+        function updateHelpfulVideos() {
+            const helpfulVideosContainer = document.getElementById('helpful-videos');
+            
+            if (helpfulVideos.length === 0) {
+                helpfulVideosContainer.innerHTML = '<p class="text-gray-400 text-center py-4">No videos marked as helpful yet. Visit Game Fixes to mark helpful tutorials!</p>';
+                return;
+            }
+            
+            helpfulVideosContainer.innerHTML = '';
+            helpfulVideos.forEach((video, index) => {
+                const videoElement = document.createElement('div');
+                videoElement.className = `flex items-center justify-between ${index < helpfulVideos.length - 1 ? 'border-b border-gray-700 pb-3 mb-3' : ''}`;
+                
+                videoElement.innerHTML = `
+                    <div class="flex-1">
+                        <p class="text-white font-semibold">${video.title}</p>
+                        <p class="text-sm text-gray-400">${video.game} - ${video.issue}</p>
+                        <p class="text-xs text-cyan-400">Marked: ${video.markedDate} at ${video.markedTime}</p>
+                    </div>
+                    <div class="text-right ml-4">
+                        <p class="text-green-400 font-bold text-sm">✓ HELPFUL</p>
+                        <p class="text-xs text-gray-400">${video.duration} • ${video.views} views</p>
+                        <button class="text-cyan-400 hover:text-cyan-300 text-sm font-semibold mt-1 watch-saved-video-btn" data-video='${JSON.stringify(video)}'>
+                            Watch Again
+                        </button>
+                    </div>
+                `;
+                
+                helpfulVideosContainer.appendChild(videoElement);
+            });
+        }
+
+        function updateSavedVideos() {
+            const savedVideosContainer = document.getElementById('saved-videos');
+            
+            if (savedVideos.length === 0) {
+                savedVideosContainer.innerHTML = '<p class="text-gray-400 text-center py-4">No videos saved yet. Visit Game Fixes to save tutorials for later!</p>';
+                return;
+            }
+            
+            savedVideosContainer.innerHTML = '';
+            savedVideos.forEach((video, index) => {
+                const videoElement = document.createElement('div');
+                videoElement.className = `flex items-center justify-between ${index < savedVideos.length - 1 ? 'border-b border-gray-700 pb-3 mb-3' : ''}`;
+                
+                videoElement.innerHTML = `
+                    <div class="flex-1">
+                        <p class="text-white font-semibold">${video.title}</p>
+                        <p class="text-sm text-gray-400">${video.game} - ${video.issue}</p>
+                        <p class="text-xs text-purple-400">Saved: ${video.savedDate} at ${video.savedTime}</p>
+                    </div>
+                    <div class="text-right ml-4">
+                        <p class="text-purple-400 font-bold text-sm">💾 SAVED</p>
+                        <p class="text-xs text-gray-400">${video.duration} • ${video.views} views</p>
+                        <div class="flex space-x-2 mt-1">
+                            <button class="text-cyan-400 hover:text-cyan-300 text-sm font-semibold watch-saved-video-btn" data-video='${JSON.stringify(video)}'>
+                                Watch
+                            </button>
+                            <button class="text-red-400 hover:text-red-300 text-sm font-semibold remove-saved-video-btn" data-video-title="${video.title}">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                savedVideosContainer.appendChild(videoElement);
+            });
+        }
+
+        function removeSavedVideo(videoTitle) {
+            savedVideos = savedVideos.filter(v => v.title !== videoTitle);
+            showNotification(`${videoTitle} removed from saved videos!`, 'info');
+            
+            // Update account page if currently viewing it
+            if (currentPage === 'account') {
+                updateSavedVideos();
             }
         }
         
@@ -2460,63 +2829,44 @@
             
             if (!recentActivityContainer) return;
             
-            // Combine order history with some sample activities
-            const activities = [];
+            // Show only purchased orders
+            const purchasedGames = [];
             
-            // Add order history
+            // Add all purchased games from order history
             orderHistory.forEach(order => {
                 order.items.forEach(item => {
-                    activities.push({
-                        type: 'purchase',
-                        text: `Purchased ${item.title}`,
-                        date: order.date,
-                        value: item.price,
-                        icon: '💳'
+                    purchasedGames.push({
+                        gameName: item.title,
+                        purchasePrice: item.price,
+                        purchaseDate: order.date,
+                        status: 'Active' // All purchased games are active
                     });
                 });
             });
             
-            // Add some sample activities if no orders
-            if (activities.length === 0) {
-                activities.push(
-                    {
-                        type: 'achievement',
-                        text: 'Achievement Unlocked: Speed Demon',
-                        date: '5 days ago',
-                        value: '🏆',
-                        icon: '🏆'
-                    },
-                    {
-                        type: 'gameplay',
-                        text: 'Played Cyber Warfare Elite',
-                        date: '1 week ago',
-                        value: '3.5 hrs',
-                        icon: '🎮'
-                    }
-                );
-            }
-            
-            // Sort by most recent first (for orders, use actual dates)
-            activities.sort((a, b) => {
-                if (a.date.includes('ago') || b.date.includes('ago')) return 0;
-                return new Date(b.date) - new Date(a.date);
-            });
-            
-            // Limit to 5 most recent activities
-            const recentActivities = activities.slice(0, 5);
-            
-            if (recentActivities.length === 0) {
-                recentActivityContainer.innerHTML = '<p class="text-gray-400 text-center py-4">No recent activity</p>';
+            if (purchasedGames.length === 0) {
+                recentActivityContainer.innerHTML = '<p class="text-gray-400 text-center py-4">No purchased games yet. Visit the Store to buy games!</p>';
                 return;
             }
             
-            recentActivityContainer.innerHTML = recentActivities.map((activity, index) => `
-                <div class="flex items-center justify-between ${index < recentActivities.length - 1 ? 'border-b border-gray-700 pb-2' : ''}">
-                    <div>
-                        <p class="text-white font-semibold">${activity.text}</p>
-                        <p class="text-sm text-gray-400">${activity.date}</p>
+            // Sort by most recent first
+            purchasedGames.sort((a, b) => {
+                return new Date(b.purchaseDate) - new Date(a.purchaseDate);
+            });
+            
+            // Show all purchased games
+            recentActivityContainer.innerHTML = purchasedGames.map((game, index) => `
+                <div class="flex items-center justify-between ${index < purchasedGames.length - 1 ? 'border-b border-gray-700 pb-3 mb-3' : ''}">
+                    <div class="flex-1">
+                        <p class="text-white font-semibold">${game.gameName}</p>
+                        <p class="text-sm text-gray-400">Purchased: ${game.purchaseDate}</p>
                     </div>
-                    <span class="${activity.type === 'purchase' ? 'text-green-400' : activity.type === 'achievement' ? 'text-yellow-400' : 'text-cyan-400'}">${activity.value}</span>
+                    <div class="text-right ml-4">
+                        <p class="text-green-400 font-bold">${game.purchasePrice}</p>
+                        <span class="inline-block px-2 py-1 text-xs font-bold rounded-full bg-green-600 text-white">
+                            ${game.status}
+                        </span>
+                    </div>
                 </div>
             `).join('');
         }
@@ -2550,6 +2900,39 @@
                 `;
                 
                 userGiveawaysContainer.appendChild(entryElement);
+            });
+        }
+
+        function updateFavoriteGames() {
+            const userFavoritesContainer = document.getElementById('user-favorites');
+            
+            if (favoriteGames.length === 0) {
+                userFavoritesContainer.innerHTML = '<p class="text-gray-400 text-center py-4">No favorite games yet. Visit your Library to add favorites!</p>';
+                return;
+            }
+            
+            userFavoritesContainer.innerHTML = '';
+            favoriteGames.forEach(favorite => {
+                const favoriteElement = document.createElement('div');
+                favoriteElement.className = 'flex items-center justify-between border-b border-gray-700 pb-3 mb-3';
+                
+                const achievementPercentage = favorite.totalAchievements > 0 ? 
+                    Math.round((favorite.achievements / favorite.totalAchievements) * 100) : 0;
+                
+                favoriteElement.innerHTML = `
+                    <div class="flex-1">
+                        <p class="text-white font-semibold">${favorite.title}</p>
+                        <p class="text-sm text-gray-400">Added: ${favorite.dateAdded} • ${favorite.hoursPlayed}h played</p>
+                        <p class="text-xs text-yellow-400">Achievements: ${favorite.achievements}/${favorite.totalAchievements} (${achievementPercentage}%)</p>
+                    </div>
+                    <div class="text-right ml-4">
+                        <button class="text-red-400 hover:text-red-300 text-sm font-semibold remove-favorite-btn" data-game-title="${favorite.title}">
+                            Remove
+                        </button>
+                    </div>
+                `;
+                
+                userFavoritesContainer.appendChild(favoriteElement);
             });
         }
 
@@ -2755,6 +3138,34 @@
                 handleParticipationSubmit(participationCode);
             });
 
+            // Video Modal close handlers
+            document.getElementById('close-video-modal').addEventListener('click', hideVideoModal);
+            document.getElementById('video-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideVideoModal();
+                }
+            });
+
+            // Game Settings Modal close handlers
+            document.getElementById('close-game-settings-modal').addEventListener('click', hideGameSettingsModal);
+            document.getElementById('cancel-settings').addEventListener('click', hideGameSettingsModal);
+            document.getElementById('game-settings-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideGameSettingsModal();
+                }
+            });
+
+            // Game settings action handlers
+            document.getElementById('replace-game-btn').addEventListener('click', function() {
+                handleGameAction('replace');
+            });
+            document.getElementById('repair-game-btn').addEventListener('click', function() {
+                handleGameAction('repair');
+            });
+            document.getElementById('uninstall-game-btn').addEventListener('click', function() {
+                handleGameAction('uninstall');
+            });
+
             // Close modal on escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
@@ -2769,6 +3180,12 @@
                     }
                     if (!document.getElementById('payment-modal').classList.contains('hidden')) {
                         hidePaymentPage();
+                    }
+                    if (!document.getElementById('game-settings-modal').classList.contains('hidden')) {
+                        hideGameSettingsModal();
+                    }
+                    if (!document.getElementById('video-modal').classList.contains('hidden')) {
+                        hideVideoModal();
                     }
                 }
             });
@@ -2992,6 +3409,222 @@
             }
         }
 
+        // Function to render game fixes videos
+        function renderGameFixes() {
+            const gameFixesGrid = document.getElementById('game-fixes-grid');
+            if (gameFixesGrid) {
+                gameFixesGrid.innerHTML = '';
+                gameFixVideos.forEach(video => {
+                    gameFixesGrid.appendChild(createVideoCard(video));
+                });
+            }
+        }
+
+        // Random video URLs for demo purposes
+        const randomVideos = [
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+        ];
+
+        // User video interactions
+        let helpfulVideos = [];
+        let savedVideos = [];
+
+        // Video modal functions
+        function showVideoModal(videoData) {
+            const videoModal = document.getElementById('video-modal');
+            const videoContent = document.getElementById('video-content');
+            
+            // Get random video URL
+            const randomVideoUrl = randomVideos[Math.floor(Math.random() * randomVideos.length)];
+            
+            videoContent.innerHTML = `
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl font-bold font-['Orbitron'] text-cyan-400 mb-2">${videoData.title}</h2>
+                    <p class="text-gray-300">${videoData.game} - ${videoData.issue}</p>
+                </div>
+                
+                <!-- Video Player -->
+                <div class="bg-black border-2 border-cyan-500 mb-6 relative aspect-video">
+                    <video 
+                        id="video-player" 
+                        class="w-full h-full" 
+                        controls 
+                        preload="metadata"
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='videoPoster' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23000000;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23ff00ff;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%2300ffff;stop-opacity:0.3' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23videoPoster)'/%3E%3Ccircle cx='400' cy='225' r='50' fill='%23ff0000' opacity='0.8'/%3E%3Cpolygon points='380,205 380,245 420,225' fill='%23ffffff'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='24' font-weight='bold'%3E${videoData.game} Fix Tutorial%3C/text%3E%3Ctext x='400' y='330' text-anchor='middle' fill='%23cccccc' font-family='Arial' font-size='16'%3EDuration: ${videoData.duration} • Views: ${videoData.views}%3C/text%3E%3C/svg%3E"
+                    >
+                        <source src="${randomVideoUrl}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Problem Description -->
+                    <div class="game-card p-6">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-4">🔍 Problem Description</h3>
+                        <p class="text-gray-300 mb-4">${videoData.description}</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Game:</span>
+                                <span class="text-white font-semibold">${videoData.game}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Issue:</span>
+                                <span class="text-white font-semibold">${videoData.issue}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Views:</span>
+                                <span class="text-cyan-400 font-semibold">${videoData.views}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Solution Overview -->
+                    <div class="game-card p-6">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-4">🔧 Solution Overview</h3>
+                        <p class="text-gray-300 mb-4">${videoData.solution}</p>
+                        <div class="space-y-3">
+                            <button class="w-full py-2 px-4 bg-green-600 hover:bg-green-700 text-white font-['Rajdhani'] font-bold transition-colors mark-helpful-btn" data-video='${JSON.stringify(videoData)}'>
+                                ${helpfulVideos.some(v => v.title === videoData.title) ? '✓ MARKED AS HELPFUL' : '✓ MARK AS HELPFUL'}
+                            </button>
+                            <button class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-['Rajdhani'] font-bold transition-colors copy-solution-btn" data-solution="${videoData.solution}">
+                                📋 COPY SOLUTION
+                            </button>
+                            <button class="w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white font-['Rajdhani'] font-bold transition-colors save-later-btn" data-video='${JSON.stringify(videoData)}'>
+                                ${savedVideos.some(v => v.title === videoData.title) ? '💾 SAVED' : '💾 SAVE FOR LATER'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mt-6">
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 font-['Rajdhani'] text-lg font-bold transition-colors" onclick="hideVideoModal()">
+                        CLOSE
+                    </button>
+                </div>
+            `;
+            
+            videoModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideVideoModal() {
+            const videoModal = document.getElementById('video-modal');
+            const videoPlayer = document.getElementById('video-player');
+            
+            // Pause video when closing modal
+            if (videoPlayer) {
+                videoPlayer.pause();
+            }
+            
+            videoModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Video interaction functions
+        function markVideoAsHelpful(videoData) {
+            if (!isLoggedIn) {
+                showNotification('Please log in to mark videos as helpful!', 'error');
+                showAuthModal();
+                showLoginForm();
+                return;
+            }
+
+            // Check if already marked as helpful
+            const alreadyMarked = helpfulVideos.some(v => v.title === videoData.title);
+            if (alreadyMarked) {
+                showNotification('Video already marked as helpful!', 'info');
+                return;
+            }
+
+            // Add to helpful videos
+            const helpfulVideo = {
+                ...videoData,
+                markedDate: new Date().toLocaleDateString(),
+                markedTime: new Date().toLocaleTimeString()
+            };
+
+            helpfulVideos.push(helpfulVideo);
+            showNotification(`${videoData.title} marked as helpful!`, 'success');
+
+            // Update button text in modal
+            const markButton = document.querySelector('.mark-helpful-btn');
+            if (markButton) {
+                markButton.textContent = '✓ MARKED AS HELPFUL';
+                markButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+                markButton.classList.add('bg-gray-600', 'cursor-not-allowed');
+                markButton.disabled = true;
+            }
+
+            // Update account page if currently viewing it
+            if (currentPage === 'account') {
+                updateHelpfulVideos();
+            }
+        }
+
+        function saveVideoForLater(videoData) {
+            if (!isLoggedIn) {
+                showNotification('Please log in to save videos!', 'error');
+                showAuthModal();
+                showLoginForm();
+                return;
+            }
+
+            // Check if already saved
+            const alreadySaved = savedVideos.some(v => v.title === videoData.title);
+            if (alreadySaved) {
+                showNotification('Video already saved!', 'info');
+                return;
+            }
+
+            // Add to saved videos
+            const savedVideo = {
+                ...videoData,
+                savedDate: new Date().toLocaleDateString(),
+                savedTime: new Date().toLocaleTimeString()
+            };
+
+            savedVideos.push(savedVideo);
+            showNotification(`${videoData.title} saved for later!`, 'success');
+
+            // Update button text in modal
+            const saveButton = document.querySelector('.save-later-btn');
+            if (saveButton) {
+                saveButton.textContent = '💾 SAVED';
+                saveButton.classList.remove('bg-purple-600', 'hover:bg-purple-700');
+                saveButton.classList.add('bg-gray-600', 'cursor-not-allowed');
+                saveButton.disabled = true;
+            }
+
+            // Update account page if currently viewing it
+            if (currentPage === 'account') {
+                updateSavedVideos();
+            }
+        }
+
+        function copySolutionToClipboard(solution) {
+            // Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = solution;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showNotification('Solution copied to clipboard!', 'success');
+            } catch (err) {
+                showNotification('Failed to copy solution. Please copy manually.', 'error');
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
         // Bundle modal functions
         function showBundleModal(bundleData) {
             const bundleModal = document.getElementById('bundle-modal');
@@ -3021,7 +3654,7 @@
                     </div>
                 </div>
                 <div class="flex space-x-3">
-                    <button class="cyber-button flex-1 py-3 font-['Rajdhani'] text-lg font-bold">
+                    <button class="cyber-button flex-1 py-3 font-['Rajdhani'] text-lg font-bold buy-bundle-btn" data-bundle='${JSON.stringify(bundleData)}'>
                         BUY BUNDLE
                     </button>
                     <button class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 font-bold transition-colors" id="close-bundle-modal-btn">
@@ -3066,12 +3699,44 @@
             if (e.target.classList.contains('buy-now-btn') || e.target.closest('.buy-now-btn')) {
                 e.preventDefault();
                 e.stopPropagation();
+                
+                // Check if user is logged in
+                if (!isLoggedIn) {
+                    showNotification('Please log in to purchase games!', 'error');
+                    showAuthModal();
+                    showLoginForm();
+                    return;
+                }
+                
                 const button = e.target.classList.contains('buy-now-btn') ? e.target : e.target.closest('.buy-now-btn');
                 try {
                     const gameData = JSON.parse(button.getAttribute('data-game'));
                     addToCart(gameData);
                 } catch (error) {
                     console.error('Error parsing game data:', error);
+                }
+            }
+            
+            // Handle BUY BUNDLE button click
+            if (e.target.classList.contains('buy-bundle-btn') || e.target.closest('.buy-bundle-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Check if user is logged in
+                if (!isLoggedIn) {
+                    showNotification('Please log in to purchase bundles!', 'error');
+                    showAuthModal();
+                    showLoginForm();
+                    return;
+                }
+                
+                const button = e.target.classList.contains('buy-bundle-btn') ? e.target : e.target.closest('.buy-bundle-btn');
+                try {
+                    const bundleData = JSON.parse(button.getAttribute('data-bundle'));
+                    addToCart(bundleData);
+                    hideBundleModal(); // Close the modal after adding to cart
+                } catch (error) {
+                    console.error('Error parsing bundle data:', error);
                 }
             }
             
@@ -3083,7 +3748,127 @@
                 const itemId = parseFloat(button.getAttribute('data-item-id'));
                 removeFromCart(itemId);
             }
+            
+            // Handle favorite button click
+            if (e.target.classList.contains('favorite-btn') || e.target.closest('.favorite-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Check if user is logged in
+                if (!isLoggedIn) {
+                    showNotification('Please log in to add games to favorites!', 'error');
+                    showAuthModal();
+                    showLoginForm();
+                    return;
+                }
+                
+                const button = e.target.classList.contains('favorite-btn') ? e.target : e.target.closest('.favorite-btn');
+                try {
+                    const gameData = JSON.parse(button.getAttribute('data-game'));
+                    const isFavorite = favoriteGames.some(fav => fav.title === gameData.title);
+                    
+                    if (isFavorite) {
+                        removeFromFavorites(gameData.title);
+                    } else {
+                        addToFavorites(gameData);
+                    }
+                } catch (error) {
+                    console.error('Error parsing game data:', error);
+                }
+            }
+            
+            // Handle game settings button click
+            if (e.target.classList.contains('game-settings-btn') || e.target.closest('.game-settings-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('game-settings-btn') ? e.target : e.target.closest('.game-settings-btn');
+                try {
+                    const gameData = JSON.parse(button.getAttribute('data-game'));
+                    showGameSettingsModal(gameData);
+                } catch (error) {
+                    console.error('Error parsing game data:', error);
+                }
+            }
+            
+            // Handle remove favorite button click
+            if (e.target.classList.contains('remove-favorite-btn') || e.target.closest('.remove-favorite-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('remove-favorite-btn') ? e.target : e.target.closest('.remove-favorite-btn');
+                const gameTitle = button.getAttribute('data-game-title');
+                removeFromFavorites(gameTitle);
+            }
+            
+            // Handle watch video button click
+            if (e.target.classList.contains('watch-video-btn') || e.target.closest('.watch-video-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('watch-video-btn') ? e.target : e.target.closest('.watch-video-btn');
+                try {
+                    const videoData = JSON.parse(button.getAttribute('data-video'));
+                    showVideoModal(videoData);
+                } catch (error) {
+                    console.error('Error parsing video data:', error);
+                }
+            }
+            
+            // Handle mark as helpful button click
+            if (e.target.classList.contains('mark-helpful-btn') || e.target.closest('.mark-helpful-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('mark-helpful-btn') ? e.target : e.target.closest('.mark-helpful-btn');
+                try {
+                    const videoData = JSON.parse(button.getAttribute('data-video'));
+                    markVideoAsHelpful(videoData);
+                } catch (error) {
+                    console.error('Error parsing video data:', error);
+                }
+            }
+            
+            // Handle save for later button click
+            if (e.target.classList.contains('save-later-btn') || e.target.closest('.save-later-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('save-later-btn') ? e.target : e.target.closest('.save-later-btn');
+                try {
+                    const videoData = JSON.parse(button.getAttribute('data-video'));
+                    saveVideoForLater(videoData);
+                } catch (error) {
+                    console.error('Error parsing video data:', error);
+                }
+            }
+            
+            // Handle copy solution button click
+            if (e.target.classList.contains('copy-solution-btn') || e.target.closest('.copy-solution-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('copy-solution-btn') ? e.target : e.target.closest('.copy-solution-btn');
+                const solution = button.getAttribute('data-solution');
+                copySolutionToClipboard(solution);
+            }
+            
+            // Handle watch saved video button click
+            if (e.target.classList.contains('watch-saved-video-btn') || e.target.closest('.watch-saved-video-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('watch-saved-video-btn') ? e.target : e.target.closest('.watch-saved-video-btn');
+                try {
+                    const videoData = JSON.parse(button.getAttribute('data-video'));
+                    showVideoModal(videoData);
+                } catch (error) {
+                    console.error('Error parsing video data:', error);
+                }
+            }
+            
+            // Handle remove saved video button click
+            if (e.target.classList.contains('remove-saved-video-btn') || e.target.closest('.remove-saved-video-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('remove-saved-video-btn') ? e.target : e.target.closest('.remove-saved-video-btn');
+                const videoTitle = button.getAttribute('data-video-title');
+                removeSavedVideo(videoTitle);
+            }
         });
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9960526fd3e959d8',t:'MTc2MTcxNjI1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99661b44505bc51e',t:'MTc2MTc3NjkxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
