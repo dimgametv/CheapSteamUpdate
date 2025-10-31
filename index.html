@@ -2964,33 +2964,49 @@
 
 
         function handleSignup(username, email, password) {
-  showAuthLoading('CREATING ACCOUNT...');
-  auth.createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed up
-      const user = userCredential.user;
-      // Update user profile with username
-      return user.updateProfile({
-        displayName: username
-      });
-    })
-    .then(() => {
-      isLoggedIn = true;
-      currentUser = {
-        email: auth.currentUser.email,
-        username: auth.currentUser.displayName,
-        uid: auth.currentUser.uid
-      };
-      updateAuthButton();
-      hideAuthModal();
-      showNotification(`Account created successfully! Welcome, ${currentUser.username}!`, 'success');
-      if (currentPage === 'account') updateAccountPage();
-    })
-    .catch((error) => {
-      hideAuthModal();
-      showNotification(`Signup failed: ${error.message}`, 'error');
-    });
+    showAuthLoading('CREATING ACCOUNT...');
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed up
+            const user = userCredential.user;
+
+            // Update user profile with the username
+            return user.updateProfile({
+                displayName: username
+            });
+        })
+        .then(() => {
+            // User profile updated successfully
+            isLoggedIn = true;
+            currentUser = {
+                email: auth.currentUser.email,
+                username: auth.currentUser.displayName,
+                uid: auth.currentUser.uid
+            };
+
+            // Optionally, save additional user data to the Realtime Database
+            const userRef = database.ref('users/' + auth.currentUser.uid);
+            userRef.set({
+                username: username,
+                email: email,
+                createdAt: new Date().toISOString()
+            });
+
+            updateAuthButton();
+            hideAuthModal();
+            showNotification(`Account created successfully! Welcome, ${currentUser.username}!`, 'success');
+
+            if (currentPage === 'account') {
+                updateAccountPage();
+            }
+        })
+        .catch((error) => {
+            hideAuthModal();
+            showNotification(`Signup failed: ${error.message}`, 'error');
+        });
 }
+
 
 function handleLogout() {
   auth.signOut()
