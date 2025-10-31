@@ -1459,7 +1459,8 @@
                 originalPrice: "$79.99",
                 discount: "25% OFF",
                 rating: "★★★★★",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Cyber Warfare Elite",
@@ -1467,7 +1468,8 @@
                 originalPrice: "$69.99",
                 discount: "30% OFF",
                 rating: "★★★★☆",
-                stock: "Out of Stock"
+                stock: "Out of Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Matrix Hacker",
@@ -1475,7 +1477,8 @@
                 originalPrice: "",
                 discount: "NEW",
                 rating: "★★★★★",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Synthwave City",
@@ -1483,7 +1486,8 @@
                 originalPrice: "$54.99",
                 discount: "18% OFF",
                 rating: "★★★★☆",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Digital Ghost",
@@ -1491,7 +1495,8 @@
                 originalPrice: "$49.99",
                 discount: "30% OFF",
                 rating: "★★★★★",
-                stock: "Out of Stock"
+                stock: "Out of Stock",
+                image: "images/img1.png"
             }
         ];
 
@@ -1503,7 +1508,8 @@
                 originalPrice: "",
                 discount: "NEW",
                 rating: "★★★★★",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Neural Network",
@@ -1511,7 +1517,8 @@
                 originalPrice: "",
                 discount: "NEW",
                 rating: "★★★★☆",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Code Assassin",
@@ -1519,7 +1526,8 @@
                 originalPrice: "",
                 discount: "NEW",
                 rating: "★★★★★",
-                stock: "Out of Stock"
+                stock: "Out of Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Virtual Reality X",
@@ -1527,7 +1535,8 @@
                 originalPrice: "",
                 discount: "NEW",
                 rating: "★★★★☆",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Cyber Protocol",
@@ -1535,7 +1544,8 @@
                 originalPrice: "",
                 discount: "NEW",
                 rating: "★★★★★",
-                stock: "Out of Stock"
+                stock: "Out of Stock",
+                image: "images/img1.png"
             }
         ];
 
@@ -1547,7 +1557,8 @@
                 originalPrice: "$39.99",
                 discount: "25% OFF",
                 rating: "★★★★★",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Space Invader Pro",
@@ -1555,7 +1566,8 @@
                 originalPrice: "$34.99",
                 discount: "29% OFF",
                 rating: "★★★★★",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Retro Fighter",
@@ -1563,7 +1575,8 @@
                 originalPrice: "$29.99",
                 discount: "33% OFF",
                 rating: "★★★★☆",
-                stock: "Out of Stock"
+                stock: "Out of Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Neon Arcade",
@@ -1571,7 +1584,8 @@
                 originalPrice: "$44.99",
                 discount: "22% OFF",
                 rating: "★★★★★",
-                stock: "In Stock"
+                stock: "In Stock",
+                image: "images/img1.png"
             },
             {
                 title: "Cyber Classic",
@@ -1579,7 +1593,8 @@
                 originalPrice: "$39.99",
                 discount: "30% OFF",
                 rating: "★★★★☆",
-                stock: "Out of Stock"
+                stock: "Out of Stock",
+                image: "images/img1.png"
             }
         ];
 
@@ -2281,44 +2296,45 @@
 
         // Create game card HTML
         function createGameCard(game) {
-            const gameCard = document.createElement('div');
-            gameCard.className = 'game-card overflow-hidden relative w-full aspect-[2/3] cursor-pointer';
-            
-            // Get random poster background
-            const randomPoster = "images/img1.png";
-            
-            gameCard.innerHTML = `
-                <div class="absolute inset-0">
-        <img src="${randomPoster}" alt="Gaming poster" class="w-full h-full object-cover">
-    </div>
-                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <div class="relative z-10 h-full flex flex-col">
-                    <div class="flex-1 p-3 flex flex-col justify-between">
-                        <div class="flex justify-between items-start">
-                            ${game.isBundle ? '<span class="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-bold">📦 BUNDLE</span>' : '<div></div>'}
-                            ${game.isBundle ? 
-                                '<div></div>' : 
-                                `<span class="px-2 py-1 rounded-full text-xs font-bold ${game.stock === 'In Stock' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">${game.stock}</span>`
-                            }
+    const gameCard = document.createElement('div');
+    gameCard.className = 'game-card overflow-hidden relative w-full aspect-[2/3] cursor-pointer';
+
+    // Use the game's unique image
+    const gameImage = game.image || "images/default-poster.png"; // Fallback to default if no image is set
+
+    gameCard.innerHTML = `
+        <div class="absolute inset-0">
+            <img src="${gameImage}" alt="${game.title} poster" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 h-full flex flex-col">
+            <div class="flex-1 p-3 flex flex-col justify-between">
+                <div class="flex justify-between items-start">
+                    ${game.isBundle ? '<span class="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-bold">📦 BUNDLE</span>' : '<div></div>'}
+                    ${game.isBundle ? 
+                        '<div></div>' : 
+                        `<span class="px-2 py-1 rounded-full text-xs font-bold ${game.stock === 'In Stock' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">${game.stock}</span>`
+                    }
+                </div>
+                <div class="bg-black bg-opacity-40 backdrop-blur-sm -mx-3 -mb-3 px-3 py-3 pb-6">
+                    <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 mb-3 leading-tight">${game.title}</h3>
+                    <div class="flex flex-col space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-lg font-bold text-green-400">${game.price}</span>
+                            ${game.originalPrice ? `<span class="text-gray-300 line-through text-xs">${game.originalPrice}</span>` : ''}
                         </div>
-                        <div class="bg-black bg-opacity-40 backdrop-blur-sm -mx-3 -mb-3 px-3 py-3 pb-6">
-                            <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 mb-3 leading-tight">${game.title}</h3>
-                            <div class="flex flex-col space-y-2">
-                                <div class="flex items-center space-x-2">
-                                    <span class="text-lg font-bold text-green-400">${game.price}</span>
-                                    ${game.originalPrice ? `<span class="text-gray-300 line-through text-xs">${game.originalPrice}</span>` : ''}
-                                </div>
-                                <button class="${game.isBundle ? 'cyber-button' : (game.stock === 'Out of Stock' ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'cyber-button')} px-3 py-1 font-['Rajdhani'] text-xs w-full ${game.isBundle ? 'bundle-card-btn' : 'buy-now-btn'}" ${game.isBundle ? `data-bundle='${JSON.stringify(game)}'` : `data-game='${JSON.stringify(game)}'`} ${!game.isBundle && game.stock === 'Out of Stock' ? 'disabled' : ''}>
-                                    ${game.isBundle ? 'VIEW BUNDLE' : (game.stock === 'Out of Stock' ? 'OUT OF STOCK' : 'BUY NOW')}
-                                </button>
-                            </div>
-                        </div>
+                        <button class="${game.isBundle ? 'cyber-button' : (game.stock === 'Out of Stock' ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'cyber-button')} px-3 py-1 font-['Rajdhani'] text-xs w-full ${game.isBundle ? 'bundle-card-btn' : 'buy-now-btn'}" ${game.isBundle ? `data-bundle='${JSON.stringify(game)}'` : `data-game='${JSON.stringify(game)}'`} ${!game.isBundle && game.stock === 'Out of Stock' ? 'disabled' : ''}>
+                            ${game.isBundle ? 'VIEW BUNDLE' : (game.stock === 'Out of Stock' ? 'OUT OF STOCK' : 'BUY NOW')}
+                        </button>
                     </div>
                 </div>
-            `;
-            
-            return gameCard;
-        }
+            </div>
+        </div>
+    `;
+
+    return gameCard;
+}
+
 
         // Game Bundles data
         const gameBundles = [
@@ -2334,7 +2350,8 @@
                     "Cyber Warfare Elite", 
                     "Matrix Hacker",
                     "Digital Ghost"
-                ]
+                ],
+                image: "images/img1.png"
             },
             {
                 title: "Indie Classics Pack",
@@ -2362,7 +2379,8 @@
                     "Neon Speed Racer",
                     "Cyber Highway",
                     "Quantum Racing"
-                ]
+                ],
+                image: "images/img1.png"
             },
             {
                 title: "Strategy Master Collection",
@@ -2377,7 +2395,8 @@
                     "Cyber Protocol",
                     "Quantum Breach",
                     "Virtual Reality X"
-                ]
+                ],
+                image: "images/img1.png"
             },
             {
                 title: "Complete Gamer Pack",
@@ -2394,7 +2413,8 @@
                     "Neon Runner 2077",
                     "Cyber Warfare Elite",
                     "Space Invader Pro"
-                ]
+                ],
+                image: "images/img1.png"
             }
         ];
 
