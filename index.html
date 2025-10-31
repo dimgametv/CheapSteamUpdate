@@ -2920,11 +2920,12 @@
             document.body.style.overflow = 'hidden';
         }
 
-        function hideAuthModal() {
-            const authModal = document.getElementById('auth-modal');
-            authModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
+       function hideAuthModal() {
+  const authModal = document.getElementById('auth-modal');
+  authModal.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
 
         function showLoginForm() {
             document.getElementById('login-form').classList.remove('hidden');
@@ -2946,7 +2947,8 @@
       currentUser = {
         email: user.email,
         username: user.displayName || user.email.split('@')[0],
-        uid: user.uid
+        uid: user.uid,
+        steamId: user.uid // Placeholder for Steam ID
       };
       updateAuthButton();
       hideAuthModal();
@@ -2958,6 +2960,7 @@
       showNotification(`Login failed: ${error.message}`, 'error');
     });
 }
+
 
 
         function handleSignup(username, email, password) {
@@ -2989,8 +2992,7 @@
     });
 }
 
-
-        function handleLogout() {
+function handleLogout() {
   auth.signOut()
     .then(() => {
       isLoggedIn = false;
@@ -3004,31 +3006,33 @@
 }
 
 
+
         function showNotification(message, type = 'info') {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 font-['Rajdhani'] font-semibold text-white transform translate-x-full transition-transform duration-300 ${
-                type === 'success' ? 'bg-green-600' : 
-                type === 'error' ? 'bg-red-600' : 
-                'bg-blue-600'
-            }`;
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            // Slide in
-            setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-            }, 100);
-            
-            // Slide out and remove
-            setTimeout(() => {
-                notification.style.transform = 'translateX(full)';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = `fixed top-4 right-4 z-50 px-6 py-3 font-['Rajdhani'] font-semibold text-white transform translate-x-full transition-transform duration-300 ${
+    type === 'success' ? 'bg-green-600' :
+    type === 'error' ? 'bg-red-600' :
+    'bg-blue-600'
+  }`;
+  notification.textContent = message;
+
+  document.body.appendChild(notification);
+
+  // Slide in
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+
+  // Slide out and remove
+  setTimeout(() => {
+    notification.style.transform = 'translateX(full)';
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
 
         // Loading functionality
         function showLoading() {
@@ -3055,55 +3059,55 @@
 
         // Auth loading functionality with circular progress
         function showAuthLoading(message) {
-            const authModal = document.getElementById('auth-modal');
-            const authContent = authModal.querySelector('.bg-gradient-to-br');
-            
-            // Store original content
-            const originalContent = authContent.innerHTML;
-            
-            // Show loading animation
-            authContent.innerHTML = `
-                <div class="text-center py-16">
-                    <div class="loading-text mb-8">${message}</div>
-                    <div class="flex justify-center">
-                        <div class="relative w-24 h-24">
-                            <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
-                                <circle id="auth-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none" 
-                                        stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
-                                        style="transition: stroke-dashoffset 0.1s ease;"/>
-                            </svg>
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <span id="auth-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // Animate the circular progress bar
-            const progressCircle = document.getElementById('auth-progress-circle');
-            const progressText = document.getElementById('auth-progress-text');
-            const circumference = 251.2; // 2 * π * 40
-            let progress = 0;
-            
-            const progressInterval = setInterval(() => {
-                progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
-                const offset = circumference - (progress / 100) * circumference;
-                
-                progressCircle.style.strokeDashoffset = offset;
-                progressText.textContent = progress + '%';
-                
-                if (progress >= 100) {
-                    clearInterval(progressInterval);
-                    
-                    // Restore original content after loading completes
-                    setTimeout(() => {
-                        authContent.innerHTML = originalContent;
-                    }, 200);
-                }
-            }, 100);
-        }
+  const authModal = document.getElementById('auth-modal');
+  const authContent = authModal.querySelector('.bg-gradient-to-br');
+
+  // Store original content
+  const originalContent = authContent.innerHTML;
+
+  // Show loading animation
+  authContent.innerHTML = `
+    <div class="text-center py-16">
+      <div class="loading-text mb-8">${message}</div>
+      <div class="flex justify-center">
+        <div class="relative w-24 h-24">
+          <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
+            <circle id="auth-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none"
+                    stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                    style="transition: stroke-dashoffset 0.1s ease;"/>
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span id="auth-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Animate the circular progress bar
+  const progressCircle = document.getElementById('auth-progress-circle');
+  const progressText = document.getElementById('auth-progress-text');
+  const circumference = 251.2; // 2 * π * 40
+  let progress = 0;
+
+  const progressInterval = setInterval(() => {
+    progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
+    const offset = circumference - (progress / 100) * circumference;
+
+    progressCircle.style.strokeDashoffset = offset;
+    progressText.textContent = progress + '%';
+
+    if (progress >= 100) {
+      clearInterval(progressInterval);
+      // Restore original content after loading completes
+      setTimeout(() => {
+        authContent.innerHTML = originalContent;
+      }, 200);
+    }
+  }, 100);
+}
+
 
         // Tab loading functionality - now shows full screen loading for 2 seconds
         function showTabLoading() {
