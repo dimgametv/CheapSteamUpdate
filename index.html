@@ -1460,7 +1460,7 @@
                 discount: "25% OFF",
                 rating: "★★★★★",
                 stock: "In Stock",
-                image: "images/img2.png"
+                image: "images/img1.png"
             },
             {
                 title: "Cyber Warfare Elite",
@@ -2891,37 +2891,28 @@
         let userGiveawayEntries = [];
 
         function updateAuthButton() {
-            const authButton = document.getElementById('auth-button');
-            const authText = authButton.querySelector('.auth-text');
-            const authIcon = authButton.querySelector('.auth-icon svg path');
-            const cartSection = document.getElementById('cart-section');
-            const ownedGamesSection = document.getElementById('owned-games-section');
-            const accountMenuItem = document.querySelector('[data-page="account"]');
-            
-            if (isLoggedIn) {
-                authText.textContent = 'Logout';
-                // Change icon to logout icon
-                authIcon.setAttribute('d', 'M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.59L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z');
-                cartSection.style.display = 'block';
-                if (ownedGamesSection) {
-                    ownedGamesSection.style.display = 'block';
-                }
-                if (accountMenuItem) {
-                    accountMenuItem.style.display = 'block';
-                }
-            } else {
-                authText.textContent = 'Login';
-                // Change icon to login icon
-                authIcon.setAttribute('d', 'M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z');
-                cartSection.style.display = 'none';
-                if (ownedGamesSection) {
-                    ownedGamesSection.style.display = 'none';
-                }
-                if (accountMenuItem) {
-                    accountMenuItem.style.display = 'none';
-                }
-            }
-        }
+  const authButton = document.getElementById('auth-button');
+  const authText = authButton.querySelector('.auth-text');
+  const authIcon = authButton.querySelector('.auth-icon svg path');
+  const cartSection = document.getElementById('cart-section');
+  const ownedGamesSection = document.getElementById('owned-games-section');
+  const accountMenuItem = document.querySelector('[data-page="account"]');
+
+  if (isLoggedIn) {
+    authText.textContent = 'Logout';
+    authIcon.setAttribute('d', 'M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.59L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z');
+    cartSection.style.display = 'block';
+    if (ownedGamesSection) ownedGamesSection.style.display = 'block';
+    if (accountMenuItem) accountMenuItem.style.display = 'block';
+  } else {
+    authText.textContent = 'Login';
+    authIcon.setAttribute('d', 'M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z');
+    cartSection.style.display = 'none';
+    if (ownedGamesSection) ownedGamesSection.style.display = 'none';
+    if (accountMenuItem) accountMenuItem.style.display = 'none';
+  }
+}
+
 
         function showAuthModal() {
             const authModal = document.getElementById('auth-modal');
@@ -2946,72 +2937,72 @@
         }
 
         function handleLogin(email, password) {
-            // Simulate login process
-            if (email && password) {
-                showAuthLoading('LOGGING IN...');
-                
-                // Simulate login delay
-                setTimeout(() => {
-                    isLoggedIn = true;
-                    currentUser = {
-                        email: email,
-                        username: email.split('@')[0],
-                        steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
-                    };
-                    updateAuthButton();
-                    hideAuthModal();
-                    
-                    // Show success message
-                    showNotification('Login successful! Welcome back, ' + currentUser.username + '!', 'success');
-                    
-                    // Update account page if currently viewing it
-                    if (currentPage === 'account') {
-                        updateAccountPage();
-                    }
-                    
-                    // Clear form
-                    document.getElementById('login-form-element').reset();
-                }, 2200); // Wait for loading animation to complete
-            }
-        }
+  showAuthLoading('LOGGING IN...');
+  auth.signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      isLoggedIn = true;
+      currentUser = {
+        email: user.email,
+        username: user.displayName || user.email.split('@')[0],
+        uid: user.uid
+      };
+      updateAuthButton();
+      hideAuthModal();
+      showNotification(`Login successful! Welcome back, ${currentUser.username}!`, 'success');
+      if (currentPage === 'account') updateAccountPage();
+    })
+    .catch((error) => {
+      hideAuthModal();
+      showNotification(`Login failed: ${error.message}`, 'error');
+    });
+}
+
 
         function handleSignup(username, email, password) {
-            // Simulate signup process
-            if (username && email && password) {
-                showAuthLoading('CREATING ACCOUNT...');
-                
-                // Simulate signup delay
-                setTimeout(() => {
-                    isLoggedIn = true;
-                    currentUser = {
-                        email: email,
-                        username: username,
-                        steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
-                    };
-                    updateAuthButton();
-                    hideAuthModal();
-                    
-                    // Show success message
-                    showNotification('Account created successfully! Welcome, ' + username + '!', 'success');
-                    
-                    // Update account page if currently viewing it
-                    if (currentPage === 'account') {
-                        updateAccountPage();
-                    }
-                    
-                    // Clear form
-                    document.getElementById('signup-form-element').reset();
-                }, 2200); // Wait for loading animation to complete
-            }
-        }
+  showAuthLoading('CREATING ACCOUNT...');
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed up
+      const user = userCredential.user;
+      // Update user profile with username
+      return user.updateProfile({
+        displayName: username
+      });
+    })
+    .then(() => {
+      isLoggedIn = true;
+      currentUser = {
+        email: auth.currentUser.email,
+        username: auth.currentUser.displayName,
+        uid: auth.currentUser.uid
+      };
+      updateAuthButton();
+      hideAuthModal();
+      showNotification(`Account created successfully! Welcome, ${currentUser.username}!`, 'success');
+      if (currentPage === 'account') updateAccountPage();
+    })
+    .catch((error) => {
+      hideAuthModal();
+      showNotification(`Signup failed: ${error.message}`, 'error');
+    });
+}
+
 
         function handleLogout() {
-            isLoggedIn = false;
-            currentUser = null;
-            userGiveawayEntries = [];
-            updateAuthButton();
-            showNotification('Logged out successfully!', 'info');
-        }
+  auth.signOut()
+    .then(() => {
+      isLoggedIn = false;
+      currentUser = null;
+      updateAuthButton();
+      showNotification('Logged out successfully!', 'info');
+    })
+    .catch((error) => {
+      showNotification(`Logout failed: ${error.message}`, 'error');
+    });
+}
+
 
         function showNotification(message, type = 'info') {
             // Create notification element
@@ -4693,5 +4684,41 @@
             }
         });
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996f02d09770c51e',t:'MTc2MTg3MDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996f02d09770c51e',t:'MTc2MTg3MDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><!-- Add this before the closing </body> tag -->
+<script>
+  // Initialize Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyChh8kT1qmGZ6a6THiLz1CC93JSqCgsPrc",
+    authDomain: "cheapsteam-b7ac0.firebaseapp.com",
+    databaseURL: "https://cheapsteam-b7ac0-default-rtdb.firebaseio.com",
+    projectId: "cheapsteam-b7ac0",
+    storageBucket: "cheapsteam-b7ac0.firebasestorage.app",
+    messagingSenderId: "636932131547",
+    appId: "1:636932131547:web:4c48ff9fb447b56c7c5afe"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const database = firebase.database();
+
+  // Authentication state listener
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      isLoggedIn = true;
+      currentUser = {
+        email: user.email,
+        username: user.displayName || user.email.split('@')[0],
+        uid: user.uid
+      };
+      updateAuthButton();
+      if (currentPage === 'account') updateAccountPage();
+    } else {
+      isLoggedIn = false;
+      currentUser = null;
+      updateAuthButton();
+    }
+  });
+</script>
+</body>
 </html>
