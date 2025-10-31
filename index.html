@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
   <title>Cyber Games Store</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -15,6 +15,12 @@
             background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #000000 100%);
             min-height: 100%;
             overflow-x: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
         }
         
         ::-webkit-scrollbar {
@@ -209,6 +215,15 @@
             /* Header adjustments */
             .text-3xl {
                 font-size: 1.5rem !important;
+            }
+            
+            /* Auth button mobile styles */
+            .auth-text {
+                display: none !important;
+            }
+            
+            .auth-icon {
+                display: block !important;
             }
             
             /* Show mobile navigation */
@@ -594,6 +609,37 @@
             display: block;
         }
         
+        .feature-tab-button {
+            background: transparent;
+            color: #888;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
+        }
+        
+        .feature-tab-button.active {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+        }
+        
+        .feature-tab-button:not(.active):hover {
+            color: #00ffff;
+            background: rgba(0, 255, 255, 0.1);
+        }
+        
+        .feature-tabs-container {
+            min-height: 400px;
+        }
+        
+        .feature-tab-content {
+            display: none;
+        }
+        
+        .feature-tab-content.active {
+            display: block;
+        }
+        
         .game-card {
             background: linear-gradient(145deg, #1a1a2e, #16213e);
             border: 2px solid #00ffff;
@@ -765,6 +811,15 @@
             /* Header adjustments */
             .text-3xl {
                 font-size: 1.5rem !important;
+            }
+            
+            /* Auth button mobile styles */
+            .auth-text {
+                display: none !important;
+            }
+            
+            .auth-icon {
+                display: block !important;
             }
             
             /* Show mobile navigation */
@@ -944,7 +999,7 @@
     <div class="flex items-center justify-between mb-8">
      <h3 class="text-2xl font-bold font-['Orbitron'] text-cyan-400">MENU</h3><button class="hamburger active" id="close-menu"> <span></span> <span></span> <span></span> </button>
     </div>
-    <nav class="space-y-6"><button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="home">Home</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="store">Store</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="game-fixes">Game Fixes</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="account">Account</button>
+    <nav class="space-y-6"><button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="home">HOME</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="store">STORE</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="game-fixes">GAME FIXES</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="downloads">DOWNLOADS</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="changelogs">CHANGELOGS</button> <button class="block nav-link text-xl font-semibold text-white hover:text-cyan-400 transition-colors text-left w-full" data-page="account">MY ACCOUNT</button>
      <div class="pt-4 border-t border-cyan-500" id="cart-section"><button class="cyber-button font-['Rajdhani'] w-full mb-3" id="cart-button">Cart (<span id="cart-count">0</span>)</button>
       <div id="cart-items" class="space-y-2 max-h-64 overflow-y-auto"><!-- Cart items will appear here -->
       </div>
@@ -962,7 +1017,9 @@
        CHEAPSTEAM
       </div>
      </div>
-     <div class="flex items-center justify-end w-1/3"><button class="cyber-button font-['Rajdhani'] mr-0" id="auth-button">Login</button>
+     <div class="flex items-center justify-end w-1/3"><button class="cyber-button font-['Rajdhani'] mr-0 rounded-lg" id="auth-button"> <span class="auth-text">Login</span> <span class="auth-icon hidden">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z" />
+        </svg></span> </button>
      </div>
     </div>
    </nav>
@@ -1037,7 +1094,7 @@
          </div>
         </div>
        </div>
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="bundles-grid"><!-- Game bundles will be populated by JavaScript -->
+       <div class="grid grid-cols-2 lg:grid-cols-5 gap-3" id="bundles-grid" style="padding-left: 2px; padding-right: 2px;"><!-- Game bundles will be populated by JavaScript -->
        </div>
       </div>
      </div>
@@ -1066,6 +1123,71 @@
       </div>
      </div>
     </section>
+   </div><!-- Downloads Page -->
+   <div class="page-container" id="downloads-page">
+    <section class="py-8 px-4">
+     <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-8">
+       <h1 class="text-4xl font-bold font-['Orbitron'] text-cyan-400 mb-4">📱 DOWNLOADS</h1>
+       <p class="text-xl text-gray-300">Download CheapSteam software for your devices</p>
+      </div><!-- Download Cards - Responsive Full Width -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"><!-- Android App Card -->
+       <div class="game-card overflow-hidden relative cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-green-700 opacity-30"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div><!-- Admin Only Badge -->
+        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-2 rounded-full text-sm font-bold z-20">
+         🔒 ADMIN ONLY
+        </div>
+        <div class="relative z-10 p-8">
+         <div class="text-center mb-8">
+          <div class="text-6xl mb-4">
+           📱
+          </div>
+          <h3 class="text-2xl font-bold font-['Orbitron'] text-cyan-400 mb-4">ANDROID APP</h3>
+          <p class="text-gray-300 text-lg">Download CheapSteam for Android devices</p>
+         </div>
+         <div class="bg-black bg-opacity-60 backdrop-blur-sm rounded-lg p-6 mb-6">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+           <div class="text-center"><span class="text-gray-400 text-sm block">Version</span> <span class="text-white font-semibold text-lg">v2.4.1</span>
+           </div>
+           <div class="text-center"><span class="text-gray-400 text-sm block">Size</span> <span class="text-white font-semibold text-lg">45.2 MB</span>
+           </div>
+           <div class="text-center"><span class="text-gray-400 text-sm block">Downloads</span> <span class="text-green-400 font-semibold text-lg">2.1M+</span>
+           </div>
+          </div>
+          <div class="space-y-3"><button class="bg-gray-600 text-gray-300 cursor-not-allowed w-full py-3 font-['Rajdhani'] text-lg font-bold rounded" disabled> 🔒 ADMIN ACCESS REQUIRED </button> <button class="bg-gray-600 text-gray-300 cursor-not-allowed w-full py-3 font-['Rajdhani'] text-lg font-bold rounded" disabled> 🔒 RESTRICTED ACCESS </button>
+          </div>
+         </div>
+        </div>
+       </div><!-- Windows App Card -->
+       <div class="game-card overflow-hidden relative cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700 opacity-30"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 p-8">
+         <div class="text-center mb-8">
+          <div class="text-6xl mb-4">
+           💻
+          </div>
+          <h3 class="text-2xl font-bold font-['Orbitron'] text-cyan-400 mb-4">WINDOWS APP</h3>
+          <p class="text-gray-300 text-lg">Download CheapSteam for Windows PC</p>
+         </div>
+         <div class="bg-black bg-opacity-60 backdrop-blur-sm rounded-lg p-6 mb-6">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+           <div class="text-center"><span class="text-gray-400 text-sm block">Version</span> <span class="text-white font-semibold text-lg">v2.4.1</span>
+           </div>
+           <div class="text-center"><span class="text-gray-400 text-sm block">Size</span> <span class="text-white font-semibold text-lg">128.7 MB</span>
+           </div>
+           <div class="text-center"><span class="text-gray-400 text-sm block">Downloads</span> <span class="text-blue-400 font-semibold text-lg">1.8M+</span>
+           </div>
+          </div>
+          <div class="space-y-3"><button class="cyber-button w-full py-3 font-['Rajdhani'] text-lg font-bold rounded download-btn" data-platform="windows"> 📥 DOWNLOAD EXE </button> <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 font-['Rajdhani'] text-lg font-bold transition-colors rounded microsoft-store-btn"> 🏪 MICROSOFT STORE </button>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
    </div><!-- Game Fixes Page -->
    <div class="page-container" id="game-fixes-page">
     <section class="py-8 px-4">
@@ -1073,8 +1195,26 @@
       <div class="text-center mb-8">
        <h1 class="text-4xl font-bold font-['Orbitron'] text-cyan-400 mb-4">🔧 GAME FIXES</h1>
        <p class="text-xl text-gray-300">Video tutorials to fix common gaming issues</p>
+      </div><!-- Search Section -->
+      <div class="mb-8">
+       <div class="relative"><input type="text" id="game-fixes-search" placeholder="Search for game fixes, issues, or game names..." class="w-full px-6 py-4 bg-black bg-opacity-50 border-2 border-cyan-500 text-white text-lg focus:outline-none focus:border-cyan-300 focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50 font-['Rajdhani'] placeholder-gray-400">
+        <div id="game-fixes-search-suggestions" class="absolute top-full left-0 right-0 bg-black bg-opacity-95 border-2 border-cyan-500 border-t-0 max-h-96 overflow-y-auto z-50 hidden"><!-- Search suggestions will appear here -->
+        </div>
+       </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="game-fixes-grid"><!-- Game fix videos will be populated by JavaScript -->
+      </div>
+     </div>
+    </section>
+   </div><!-- Changelogs Page -->
+   <div class="page-container" id="changelogs-page">
+    <section class="py-8 px-4">
+     <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-8">
+       <h1 class="text-4xl font-bold font-['Orbitron'] text-cyan-400 mb-4">📋 CHANGELOGS</h1>
+       <p class="text-xl text-gray-300">Latest updates and improvements to CheapSteam</p>
+      </div>
+      <div class="space-y-6" id="changelogs-container"><!-- Changelogs will be populated by JavaScript -->
       </div>
      </div>
     </section>
@@ -1185,9 +1325,9 @@
   <div class="mobile-bottom-nav" id="mobile-bottom-nav"><button class="nav-button active" data-page="home">
     <svg class="nav-icon" viewbox="0 0 24 24"><path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" />
     </svg><span>HOME</span> </button> <button class="nav-button" data-page="store">
-    <svg class="nav-icon" viewbox="0 0 24 24"><path d="M19 7H18V6C18 3.79 16.21 2 14 2H10C7.79 2 6 3.79 6 6V7H5C3.9 7 3 7.9 3 9V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V9C21 7.9 20.1 7 19 7ZM10 4H14C15.1 4 16 4.9 16 6V7H8V6C8 4.9 8.9 4 10 4ZM19 20H5V9H19V20ZM12 12C10.9 12 10 12.9 10 14C10 15.1 10.9 16 12 16C13.1 16 14 15.1 14 14C14 12.9 13.1 12 12 12Z" />
+    <svg class="nav-icon" viewbox="0 0 24 24"><path d="M7 18C5.9 18 5 18.9 5 20S5.9 22 7 22 9 21.1 9 20 8.1 18 7 18ZM1 2V4H3L6.6 11.59L5.24 14.04C5.09 14.32 5 14.65 5 15C5 16.1 5.9 17 7 17H19V15H7.42C7.28 15 7.17 14.89 7.17 14.75L7.2 14.63L8.1 13H15.55C16.3 13 16.96 12.58 17.3 11.97L20.88 5H5.21L4.27 3H1ZM17 18C15.9 18 15 18.9 15 20S15.9 22 17 22 19 21.1 19 20 18.1 18 17 18Z" />
     </svg><span>STORE</span> </button> <button class="nav-button" data-page="account">
-    <svg class="nav-icon" viewbox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z" />
+    <svg class="nav-icon" viewbox="0 0 24 24"><path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" />
     </svg><span>ACCOUNT</span> </button>
   </div><!-- Participation Code Modal -->
   <div class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 hidden" id="participation-modal">
@@ -1209,7 +1349,7 @@
   </div><!-- Bundle Details Modal -->
   <div class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 hidden" id="bundle-modal">
    <div class="flex items-center justify-center min-h-full p-4">
-    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-cyan-500 p-8 w-full max-w-lg relative cyber-glow"><button class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl" id="close-bundle-modal">×</button>
+    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-cyan-500 p-8 w-full relative cyber-glow max-h-[90vh] overflow-y-auto"><button class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl" id="close-bundle-modal">×</button>
      <div id="bundle-content"><!-- Bundle details will be populated here -->
      </div>
     </div>
@@ -1280,7 +1420,7 @@
   </div><!-- Video Modal -->
   <div class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 hidden" id="video-modal">
    <div class="flex items-center justify-center min-h-full p-4">
-    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-cyan-500 p-8 w-full max-w-4xl relative cyber-glow max-h-[90vh] overflow-y-auto"><button class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl" id="close-video-modal">×</button>
+    <div class="bg-gradient-to-br from-gray-900 to-black border-2 border-cyan-500 p-8 w-full relative cyber-glow max-h-[90vh] overflow-y-auto"><button class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl" id="close-video-modal">×</button>
      <div id="video-content"><!-- Video content will be populated here -->
      </div>
     </div>
@@ -1334,35 +1474,40 @@
                 price: "$59.99",
                 originalPrice: "$79.99",
                 discount: "25% OFF",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "In Stock"
             },
             {
                 title: "Cyber Warfare Elite",
                 price: "$49.99",
                 originalPrice: "$69.99",
                 discount: "30% OFF",
-                rating: "★★★★☆"
+                rating: "★★★★☆",
+                stock: "Out of Stock"
             },
             {
                 title: "Matrix Hacker",
                 price: "$39.99",
                 originalPrice: "",
                 discount: "NEW",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "In Stock"
             },
             {
                 title: "Synthwave City",
                 price: "$44.99",
                 originalPrice: "$54.99",
                 discount: "18% OFF",
-                rating: "★★★★☆"
+                rating: "★★★★☆",
+                stock: "In Stock"
             },
             {
                 title: "Digital Ghost",
                 price: "$34.99",
                 originalPrice: "$49.99",
                 discount: "30% OFF",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "Out of Stock"
             }
         ];
 
@@ -1373,35 +1518,40 @@
                 price: "$69.99",
                 originalPrice: "",
                 discount: "NEW",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "In Stock"
             },
             {
                 title: "Neural Network",
                 price: "$54.99",
                 originalPrice: "",
                 discount: "NEW",
-                rating: "★★★★☆"
+                rating: "★★★★☆",
+                stock: "In Stock"
             },
             {
                 title: "Code Assassin",
                 price: "$49.99",
                 originalPrice: "",
                 discount: "NEW",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "Out of Stock"
             },
             {
                 title: "Virtual Reality X",
                 price: "$64.99",
                 originalPrice: "",
                 discount: "NEW",
-                rating: "★★★★☆"
+                rating: "★★★★☆",
+                stock: "In Stock"
             },
             {
                 title: "Cyber Protocol",
                 price: "$59.99",
                 originalPrice: "",
                 discount: "NEW",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "Out of Stock"
             }
         ];
 
@@ -1412,35 +1562,40 @@
                 price: "$29.99",
                 originalPrice: "$39.99",
                 discount: "25% OFF",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "In Stock"
             },
             {
                 title: "Space Invader Pro",
                 price: "$24.99",
                 originalPrice: "$34.99",
                 discount: "29% OFF",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "In Stock"
             },
             {
                 title: "Retro Fighter",
                 price: "$19.99",
                 originalPrice: "$29.99",
                 discount: "33% OFF",
-                rating: "★★★★☆"
+                rating: "★★★★☆",
+                stock: "Out of Stock"
             },
             {
                 title: "Neon Arcade",
                 price: "$34.99",
                 originalPrice: "$44.99",
                 discount: "22% OFF",
-                rating: "★★★★★"
+                rating: "★★★★★",
+                stock: "In Stock"
             },
             {
                 title: "Cyber Classic",
                 price: "$27.99",
                 originalPrice: "$39.99",
                 discount: "30% OFF",
-                rating: "★★★★☆"
+                rating: "★★★★☆",
+                stock: "Out of Stock"
             }
         ];
 
@@ -1479,13 +1634,40 @@
 
             cart.push(cartItem);
             updateCartDisplay();
+            updateGameCardButtons(); // Update button states
             showNotification(`${game.title} added to cart!`, 'success');
         }
 
         function removeFromCart(cartId) {
             cart = cart.filter(item => item.cartId !== cartId);
             updateCartDisplay();
+            updateGameCardButtons(); // Update button states
             showNotification('Item removed from cart!', 'info');
+        }
+
+        // Function to update game card button states
+        function updateGameCardButtons() {
+            // Update all BUY NOW buttons on the page
+            document.querySelectorAll('.buy-now-btn').forEach(button => {
+                try {
+                    const gameData = JSON.parse(button.getAttribute('data-game'));
+                    const isInCart = cart.some(item => item.title === gameData.title);
+                    
+                    if (isInCart) {
+                        button.textContent = 'ADDED IN CART';
+                        button.classList.remove('cyber-button');
+                        button.classList.add('bg-gray-600', 'text-gray-300', 'cursor-not-allowed');
+                        button.disabled = true;
+                    } else {
+                        button.textContent = 'BUY NOW';
+                        button.classList.add('cyber-button');
+                        button.classList.remove('bg-gray-600', 'text-gray-300', 'cursor-not-allowed');
+                        button.disabled = false;
+                    }
+                } catch (error) {
+                    console.error('Error updating button state:', error);
+                }
+            });
         }
 
         function updateCartDisplay() {
@@ -1712,6 +1894,7 @@
                 // Clear cart
                 cart = [];
                 updateCartDisplay();
+                updateGameCardButtons(); // Reset button states
                 
                 // Hide payment modal
                 hidePaymentPage();
@@ -1869,6 +2052,89 @@
             }
         }
 
+        // Search functionality for game fixes
+        function initGameFixesSearch() {
+            const gameFixesSearchInput = document.getElementById('game-fixes-search');
+            const gameFixesSuggestionsContainer = document.getElementById('game-fixes-search-suggestions');
+            const gameFixesGrid = document.getElementById('game-fixes-grid');
+            
+            if (!gameFixesSearchInput || !gameFixesGrid) return;
+            
+            gameFixesSearchInput.addEventListener('input', function() {
+                const query = this.value.trim().toLowerCase();
+                
+                if (query.length === 0) {
+                    if (gameFixesSuggestionsContainer) gameFixesSuggestionsContainer.classList.add('hidden');
+                    // Show all videos
+                    renderGameFixVideos(gameFixVideos);
+                    return;
+                }
+                
+                const filteredVideos = gameFixVideos.filter(video => 
+                    video.title.toLowerCase().includes(query) ||
+                    video.game.toLowerCase().includes(query) ||
+                    video.issue.toLowerCase().includes(query) ||
+                    video.description.toLowerCase().includes(query) ||
+                    video.solution.toLowerCase().includes(query)
+                );
+                
+                // Update grid with filtered results
+                renderGameFixVideos(filteredVideos);
+                
+                // Show suggestions if container exists
+                if (gameFixesSuggestionsContainer) {
+                    if (filteredVideos.length === 0) {
+                        gameFixesSuggestionsContainer.innerHTML = '<div class="p-4 text-gray-400 text-center">No fix videos found</div>';
+                        gameFixesSuggestionsContainer.classList.remove('hidden');
+                        return;
+                    }
+                    
+                    gameFixesSuggestionsContainer.innerHTML = filteredVideos.map(video => `
+                        <div class="p-4 hover:bg-cyan-500 hover:bg-opacity-20 cursor-pointer border-b border-gray-700 last:border-b-0 video-suggestion" data-video="${video.title}">
+                            <div class="flex justify-between items-center">
+                                <div class="flex-1">
+                                    <h4 class="text-white font-semibold">${video.title}</h4>
+                                    <div class="text-cyan-400 text-sm font-semibold">${video.game}</div>
+                                    <div class="text-gray-400 text-sm">${video.issue}</div>
+                                </div>
+                                <div class="text-right ml-4">
+                                    <div class="text-yellow-400 text-sm font-bold">${video.duration}</div>
+                                    <div class="text-gray-400 text-xs">${video.views} views</div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    gameFixesSuggestionsContainer.classList.remove('hidden');
+                }
+            });
+            
+            // Hide suggestions when clicking outside
+            if (gameFixesSuggestionsContainer) {
+                document.addEventListener('click', function(e) {
+                    if (!gameFixesSearchInput.contains(e.target) && !gameFixesSuggestionsContainer.contains(e.target)) {
+                        gameFixesSuggestionsContainer.classList.add('hidden');
+                    }
+                });
+                
+                // Handle suggestion clicks
+                gameFixesSuggestionsContainer.addEventListener('click', function(e) {
+                    const suggestion = e.target.closest('.video-suggestion');
+                    if (suggestion) {
+                        const videoTitle = suggestion.getAttribute('data-video');
+                        gameFixesSearchInput.value = videoTitle;
+                        gameFixesSuggestionsContainer.classList.add('hidden');
+                        
+                        // Optionally open the video modal
+                        const video = gameFixVideos.find(v => v.title === videoTitle);
+                        if (video) {
+                            showVideoModal(video);
+                        }
+                    }
+                });
+            }
+        }
+
         // Function to render bundles (for filtering)
         function renderBundles(bundles) {
             const bundlesGrid = document.getElementById('bundles-grid');
@@ -1949,9 +2215,6 @@
                 <div class="relative z-10">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 leading-tight">${game.title}</h3>
-                        <span class="text-xs px-2 py-1 rounded-full ${game.status === 'Installed' ? 'bg-green-600 text-white' : 'bg-gray-600 text-gray-300'}">
-                            ${game.status}
-                        </span>
                     </div>
                     <div class="space-y-2 mb-4">
                         <div class="flex justify-between text-xs">
@@ -2049,21 +2312,20 @@
                     <div class="flex-1 p-3 flex flex-col justify-between">
                         <div class="flex justify-between items-start">
                             ${game.isBundle ? '<span class="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-bold">📦 BUNDLE</span>' : '<div></div>'}
-                            <span class="price-tag px-2 py-1 rounded-full text-xs font-bold">
-                                ${game.discount}
-                            </span>
+                            ${game.isBundle ? 
+                                '<div></div>' : 
+                                `<span class="px-2 py-1 rounded-full text-xs font-bold ${game.stock === 'In Stock' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">${game.stock}</span>`
+                            }
                         </div>
-                        <div class="bg-black bg-opacity-70 p-3 backdrop-blur-sm">
-                            <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 mb-2 leading-tight">${game.title}</h3>
-                            <div class="text-yellow-400 text-sm mb-3">${game.rating}</div>
-                            ${game.isBundle ? `<div class="text-xs text-gray-300 mb-2">${game.games.length} games included</div>` : ''}
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm -mx-3 -mb-3 px-3 py-3 pb-6">
+                            <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 mb-3 leading-tight">${game.title}</h3>
                             <div class="flex flex-col space-y-2">
                                 <div class="flex items-center space-x-2">
                                     <span class="text-lg font-bold text-green-400">${game.price}</span>
                                     ${game.originalPrice ? `<span class="text-gray-300 line-through text-xs">${game.originalPrice}</span>` : ''}
                                 </div>
-                                <button class="cyber-button px-3 py-1 font-['Rajdhani'] text-xs w-full ${game.isBundle ? 'bundle-card-btn' : 'buy-now-btn'}" ${game.isBundle ? `data-bundle='${JSON.stringify(game)}'` : `data-game='${JSON.stringify(game)}'`}>
-                                    ${game.isBundle ? 'VIEW BUNDLE' : 'BUY NOW'}
+                                <button class="${game.isBundle ? 'cyber-button' : (game.stock === 'Out of Stock' ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'cyber-button')} px-3 py-1 font-['Rajdhani'] text-xs w-full ${game.isBundle ? 'bundle-card-btn' : 'buy-now-btn'}" ${game.isBundle ? `data-bundle='${JSON.stringify(game)}'` : `data-game='${JSON.stringify(game)}'`} ${!game.isBundle && game.stock === 'Out of Stock' ? 'disabled' : ''}>
+                                    ${game.isBundle ? 'VIEW BUNDLE' : (game.stock === 'Out of Stock' ? 'OUT OF STOCK' : 'BUY NOW')}
                                 </button>
                             </div>
                         </div>
@@ -2116,6 +2378,38 @@
                     "Neon Speed Racer",
                     "Cyber Highway",
                     "Quantum Racing"
+                ]
+            },
+            {
+                title: "Strategy Master Collection",
+                price: "$54.99",
+                originalPrice: "$89.99",
+                discount: "39% OFF",
+                rating: "★★★★☆",
+                isBundle: true,
+                games: [
+                    "Neural Network",
+                    "Code Assassin",
+                    "Cyber Protocol",
+                    "Quantum Breach",
+                    "Virtual Reality X"
+                ]
+            },
+            {
+                title: "Complete Gamer Pack",
+                price: "$129.99",
+                originalPrice: "$199.99",
+                discount: "35% OFF",
+                rating: "★★★★★",
+                isBundle: true,
+                games: [
+                    "Synthwave City",
+                    "Digital Ghost",
+                    "Pixel Warrior",
+                    "Matrix Hacker",
+                    "Neon Runner 2077",
+                    "Cyber Warfare Elite",
+                    "Space Invader Pro"
                 ]
             }
         ];
@@ -2234,6 +2528,184 @@
                 description: "Collection of three different mechanical keyboards with custom switches."
             }
         ];
+
+        // Changelogs data
+        const changelogs = [
+            {
+                version: "v2.4.1",
+                date: "2024-03-15",
+                type: "Website",
+                changes: [
+                    "Fixed mobile navigation scroll behavior on account page",
+                    "Improved bundle modal loading animation performance",
+                    "Added better error handling for payment processing",
+                    "Enhanced search functionality with better filtering",
+                    "Fixed cart item removal not updating button states"
+                ]
+            },
+            {
+                version: "v2.4.0",
+                date: "2024-03-12",
+                type: "Database",
+                changes: [
+                    "Optimized game catalog indexing for faster search results",
+                    "Added new database tables for user preferences and settings",
+                    "Improved giveaway participant tracking system",
+                    "Enhanced security measures for user authentication data",
+                    "Migrated legacy bundle data to new normalized structure"
+                ]
+            },
+            {
+                version: "v2.3.8",
+                date: "2024-03-10",
+                type: "Website",
+                changes: [
+                    "Redesigned video modal with better loading states",
+                    "Added circular progress indicators for better UX",
+                    "Fixed responsive design issues on tablet devices",
+                    "Improved accessibility with better keyboard navigation",
+                    "Enhanced color contrast for better readability"
+                ]
+            },
+            {
+                version: "v2.3.7",
+                date: "2024-03-08",
+                type: "Database",
+                changes: [
+                    "Implemented automatic backup system for user data",
+                    "Added database connection pooling for better performance",
+                    "Fixed memory leaks in giveaway expiration cleanup",
+                    "Optimized query performance for owned games retrieval",
+                    "Added data validation rules for cart and favorites"
+                ]
+            },
+            {
+                version: "v2.3.6",
+                date: "2024-03-05",
+                type: "Website",
+                changes: [
+                    "Added new game fixes video section with search",
+                    "Implemented user favorites system for games",
+                    "Enhanced bundle details modal with game listings",
+                    "Fixed authentication modal form validation",
+                    "Improved mobile bottom navigation behavior"
+                ]
+            },
+            {
+                version: "v2.3.5",
+                date: "2024-03-03",
+                type: "Database",
+                changes: [
+                    "Added foreign key constraints for data integrity",
+                    "Implemented soft delete for user account management",
+                    "Enhanced logging system for better debugging",
+                    "Added database health monitoring and alerts",
+                    "Optimized storage for game poster image references"
+                ]
+            },
+            {
+                version: "v2.3.4",
+                date: "2024-03-01",
+                type: "Website",
+                changes: [
+                    "Redesigned account page with better organization",
+                    "Added giveaway participation tracking system",
+                    "Enhanced shopping cart with better item management",
+                    "Fixed side menu navigation on mobile devices",
+                    "Improved loading animations across all pages"
+                ]
+            },
+            {
+                version: "v2.3.3",
+                date: "2024-02-28",
+                type: "Database",
+                changes: [
+                    "Migrated to new cloud infrastructure for better reliability",
+                    "Added real-time synchronization for cart updates",
+                    "Enhanced security with encrypted user sessions",
+                    "Implemented database sharding for scalability",
+                    "Added automated testing for data consistency"
+                ]
+            }
+        ];
+
+        // Initialize download buttons
+        function initDownloadButtons() {
+            // Download button handlers are added via event delegation in the main click handler
+        }
+
+        // Handle download functionality
+        function handleDownload(platform) {
+            // Show loading animation
+            showCircularLoading();
+            
+            setTimeout(() => {
+                if (platform === 'android') {
+                    showNotification('🤖 Android APK download started! Check your downloads folder.', 'success');
+                } else if (platform === 'windows') {
+                    showNotification('💻 Windows EXE download started! Check your downloads folder.', 'success');
+                }
+            }, 2200);
+        }
+
+        function handleStoreRedirect(store) {
+            if (store === 'playstore') {
+                showNotification('🏪 Redirecting to Google Play Store...', 'info');
+                // In a real app, this would open the Play Store
+                setTimeout(() => {
+                    window.open('https://play.google.com/store', '_blank', 'noopener,noreferrer');
+                }, 1000);
+            } else if (store === 'microsoft') {
+                showNotification('🏪 Redirecting to Microsoft Store...', 'info');
+                // In a real app, this would open the Microsoft Store
+                setTimeout(() => {
+                    window.open('https://www.microsoft.com/store', '_blank', 'noopener,noreferrer');
+                }, 1000);
+            }
+        }
+
+        // Function to render changelogs
+        function renderChangelogs() {
+            const changelogsContainer = document.getElementById('changelogs-container');
+            if (!changelogsContainer) return;
+            
+            changelogsContainer.innerHTML = '';
+            
+            changelogs.forEach((changelog, index) => {
+                const changelogCard = document.createElement('div');
+                changelogCard.className = 'game-card p-6';
+                
+                const typeColor = changelog.type === 'Website' ? 'text-cyan-400' : 'text-purple-400';
+                const typeIcon = changelog.type === 'Website' ? '🌐' : '🗄️';
+                
+                changelogCard.innerHTML = `
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl">${typeIcon}</span>
+                            <div>
+                                <h3 class="text-xl font-bold font-['Orbitron'] ${index === 0 ? 'text-yellow-400' : typeColor}">${changelog.version}</h3>
+                                <p class="text-sm text-gray-400">${changelog.type} Update</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-white font-semibold">${changelog.date}</p>
+                            <p class="text-xs text-gray-400">${changelog.changes.length} changes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        ${changelog.changes.map(change => `
+                            <div class="flex items-start space-x-3 py-2 border-b border-gray-700 last:border-b-0">
+                                <span class="text-green-400 mt-1 flex-shrink-0">•</span>
+                                <p class="text-gray-300 text-sm leading-relaxed">${change}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                changelogsContainer.appendChild(changelogCard);
+            });
+        }
 
         // Owned Games data (shown when logged in)
         const ownedGames = [
@@ -2416,20 +2888,33 @@
 
         function updateAuthButton() {
             const authButton = document.getElementById('auth-button');
+            const authText = authButton.querySelector('.auth-text');
+            const authIcon = authButton.querySelector('.auth-icon svg path');
             const cartSection = document.getElementById('cart-section');
             const ownedGamesSection = document.getElementById('owned-games-section');
+            const accountMenuItem = document.querySelector('[data-page="account"]');
             
             if (isLoggedIn) {
-                authButton.textContent = 'Logout';
+                authText.textContent = 'Logout';
+                // Change icon to logout icon
+                authIcon.setAttribute('d', 'M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.59L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z');
                 cartSection.style.display = 'block';
                 if (ownedGamesSection) {
                     ownedGamesSection.style.display = 'block';
                 }
+                if (accountMenuItem) {
+                    accountMenuItem.style.display = 'block';
+                }
             } else {
-                authButton.textContent = 'Login';
+                authText.textContent = 'Login';
+                // Change icon to login icon
+                authIcon.setAttribute('d', 'M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z');
                 cartSection.style.display = 'none';
                 if (ownedGamesSection) {
                     ownedGamesSection.style.display = 'none';
+                }
+                if (accountMenuItem) {
+                    accountMenuItem.style.display = 'none';
                 }
             }
         }
@@ -2459,50 +2944,60 @@
         function handleLogin(email, password) {
             // Simulate login process
             if (email && password) {
-                isLoggedIn = true;
-                currentUser = {
-                    email: email,
-                    username: email.split('@')[0],
-                    steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
-                };
-                updateAuthButton();
-                hideAuthModal();
+                showAuthLoading('LOGGING IN...');
                 
-                // Show success message
-                showNotification('Login successful! Welcome back, ' + currentUser.username + '!', 'success');
-                
-                // Update account page if currently viewing it
-                if (currentPage === 'account') {
-                    updateAccountPage();
-                }
-                
-                // Clear form
-                document.getElementById('login-form-element').reset();
+                // Simulate login delay
+                setTimeout(() => {
+                    isLoggedIn = true;
+                    currentUser = {
+                        email: email,
+                        username: email.split('@')[0],
+                        steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
+                    };
+                    updateAuthButton();
+                    hideAuthModal();
+                    
+                    // Show success message
+                    showNotification('Login successful! Welcome back, ' + currentUser.username + '!', 'success');
+                    
+                    // Update account page if currently viewing it
+                    if (currentPage === 'account') {
+                        updateAccountPage();
+                    }
+                    
+                    // Clear form
+                    document.getElementById('login-form-element').reset();
+                }, 2200); // Wait for loading animation to complete
             }
         }
 
         function handleSignup(username, email, password) {
             // Simulate signup process
             if (username && email && password) {
-                isLoggedIn = true;
-                currentUser = {
-                    email: email,
-                    username: username,
-                    steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
-                };
-                updateAuthButton();
-                hideAuthModal();
+                showAuthLoading('CREATING ACCOUNT...');
                 
-                // Show success message
-                showNotification('Account created successfully! Welcome, ' + username + '!', 'success');
-                
-                // Update account page if currently viewing it
-                if (currentPage === 'account') {
-                    updateAccountPage();
-                }
-                
-                // Clear form
-                document.getElementById('signup-form-element').reset();
+                // Simulate signup delay
+                setTimeout(() => {
+                    isLoggedIn = true;
+                    currentUser = {
+                        email: email,
+                        username: username,
+                        steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
+                    };
+                    updateAuthButton();
+                    hideAuthModal();
+                    
+                    // Show success message
+                    showNotification('Account created successfully! Welcome, ' + username + '!', 'success');
+                    
+                    // Update account page if currently viewing it
+                    if (currentPage === 'account') {
+                        updateAccountPage();
+                    }
+                    
+                    // Clear form
+                    document.getElementById('signup-form-element').reset();
+                }, 2200); // Wait for loading animation to complete
             }
         }
 
@@ -2563,6 +3058,58 @@
             }, 100);
         }
 
+        // Auth loading functionality with circular progress
+        function showAuthLoading(message) {
+            const authModal = document.getElementById('auth-modal');
+            const authContent = authModal.querySelector('.bg-gradient-to-br');
+            
+            // Store original content
+            const originalContent = authContent.innerHTML;
+            
+            // Show loading animation
+            authContent.innerHTML = `
+                <div class="text-center py-16">
+                    <div class="loading-text mb-8">${message}</div>
+                    <div class="flex justify-center">
+                        <div class="relative w-24 h-24">
+                            <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
+                                <circle id="auth-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none" 
+                                        stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                                        style="transition: stroke-dashoffset 0.1s ease;"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="auth-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Animate the circular progress bar
+            const progressCircle = document.getElementById('auth-progress-circle');
+            const progressText = document.getElementById('auth-progress-text');
+            const circumference = 251.2; // 2 * π * 40
+            let progress = 0;
+            
+            const progressInterval = setInterval(() => {
+                progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
+                const offset = circumference - (progress / 100) * circumference;
+                
+                progressCircle.style.strokeDashoffset = offset;
+                progressText.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    
+                    // Restore original content after loading completes
+                    setTimeout(() => {
+                        authContent.innerHTML = originalContent;
+                    }, 200);
+                }
+            }, 100);
+        }
+
         // Tab loading functionality - now shows full screen loading for 2 seconds
         function showTabLoading() {
             const loadingOverlay = document.getElementById('loading-overlay');
@@ -2582,6 +3129,59 @@
                     setTimeout(() => {
                         loadingOverlay.classList.add('hidden');
                     }, 200); // Small delay before hiding
+                }
+            }, 100);
+        }
+
+        // Circular loading functionality for BUY NOW buttons
+        function showCircularLoading() {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            
+            // Replace the loading content with circular progress
+            loadingOverlay.innerHTML = `
+                <div class="loading-text">PROCESSING...</div>
+                <div class="flex justify-center">
+                    <div class="relative w-24 h-24">
+                        <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
+                            <circle id="circular-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none" 
+                                    stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                                    style="transition: stroke-dashoffset 0.1s ease;"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span id="circular-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            loadingOverlay.classList.remove('hidden');
+            
+            // Animate the circular progress bar
+            const progressCircle = document.getElementById('circular-progress-circle');
+            const progressText = document.getElementById('circular-progress-text');
+            const circumference = 251.2; // 2 * π * 40
+            let progress = 0;
+            
+            const progressInterval = setInterval(() => {
+                progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
+                const offset = circumference - (progress / 100) * circumference;
+                
+                progressCircle.style.strokeDashoffset = offset;
+                progressText.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    setTimeout(() => {
+                        loadingOverlay.classList.add('hidden');
+                        // Restore original loading content
+                        loadingOverlay.innerHTML = `
+                            <div class="loading-text">PLEASE WAIT...</div>
+                            <div class="loading-bar-container">
+                                <div class="loading-bar" id="loading-bar"></div>
+                            </div>
+                        `;
+                    }, 200);
                 }
             }, 100);
         }
@@ -2624,6 +3224,37 @@
             });
 
             // Mobile game tabs removed - no longer needed
+        }
+
+        // Feature tabs functionality for Downloads page
+        function initFeatureTabs() {
+            const featureTabButtons = document.querySelectorAll('.feature-tab-button');
+            const featureTabContents = document.querySelectorAll('.feature-tab-content');
+
+            // Function to handle feature tab switching
+            function switchFeatureTab(targetTab, clickedButton) {
+                // Show tab loading screen
+                showTabLoading();
+                
+                // Wait for loading to complete before switching tabs
+                setTimeout(() => {
+                    // Remove active class from all buttons and contents
+                    featureTabButtons.forEach(btn => btn.classList.remove('active'));
+                    featureTabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    clickedButton.classList.add('active');
+                    document.getElementById(targetTab + '-tab').classList.add('active');
+                }, 2200); // Wait for loading to complete (2 seconds + 200ms delay)
+            }
+
+            // Add event listeners to feature tab buttons
+            featureTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-feature-tab');
+                    switchFeatureTab(targetTab, button);
+                });
+            });
         }
 
         // Page navigation with loading
@@ -2707,6 +3338,10 @@
                 renderAllOwnedGames();
             } else if (pageId === 'game-fixes') {
                 renderGameFixes();
+            } else if (pageId === 'changelogs') {
+                renderChangelogs();
+            } else if (pageId === 'downloads') {
+                initDownloadButtons();
             }
             
             // Scroll to top
@@ -2998,6 +3633,57 @@
             input.value = input.value.replace(/[^0-9]/g, '');
         }
 
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable zoom with keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+Plus, Ctrl+Minus, Ctrl+0, Ctrl+Scroll
+            if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+                e.preventDefault();
+                return false;
+            }
+            // Disable F12 (Developer Tools)
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            // Disable Ctrl+Shift+I (Developer Tools)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+                return false;
+            }
+            // Disable Ctrl+U (View Source)
+            if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Disable zoom with mouse wheel
+        document.addEventListener('wheel', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                e.preventDefault();
+                return false;
+            }
+        }, { passive: false });
+
+        // Disable pinch-to-zoom on touch devices
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
             // Show loading screen on initial page load
@@ -3008,6 +3694,7 @@
                 renderGames();
                 initBannerSlider();
                 initTabs();
+                initFeatureTabs();
                 initPageNavigation();
                 initMobileNavScroll();
                 updateAuthButton();
@@ -3015,6 +3702,7 @@
                 initViewMoreButtons();
                 initHomeSearch();
                 initBundleSearch();
+                initGameFixesSearch();
                 updateCartDisplay(); // Initialize cart display
             }, 4200); // Wait for initial loading to complete
             
@@ -3037,8 +3725,14 @@
             });
 
             // Form switch handlers
-            document.getElementById('show-signup').addEventListener('click', showSignupForm);
-            document.getElementById('show-login').addEventListener('click', showLoginForm);
+            document.getElementById('show-signup').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSignupForm();
+            });
+            document.getElementById('show-login').addEventListener('click', function(e) {
+                e.preventDefault();
+                showLoginForm();
+            });
 
             // Form submission handlers
             document.getElementById('login-form-element').addEventListener('submit', function(e) {
@@ -3420,6 +4114,21 @@
             }
         }
 
+        // Function to render filtered game fix videos
+        function renderGameFixVideos(videos) {
+            const gameFixesGrid = document.getElementById('game-fixes-grid');
+            if (gameFixesGrid) {
+                gameFixesGrid.innerHTML = '';
+                if (videos.length === 0) {
+                    gameFixesGrid.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-gray-400 text-xl">No fix videos found matching your search.</p><p class="text-gray-500 text-sm mt-2">Try different keywords or browse all available tutorials.</p></div>';
+                    return;
+                }
+                videos.forEach(video => {
+                    gameFixesGrid.appendChild(createVideoCard(video));
+                });
+            }
+        }
+
         // Random video URLs for demo purposes
         const randomVideos = [
             "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
@@ -3441,77 +4150,118 @@
             const videoModal = document.getElementById('video-modal');
             const videoContent = document.getElementById('video-content');
             
-            // Get random video URL
-            const randomVideoUrl = randomVideos[Math.floor(Math.random() * randomVideos.length)];
-            
+            // Show modal with loading animation first
             videoContent.innerHTML = `
-                <div class="text-center mb-6">
-                    <h2 class="text-3xl font-bold font-['Orbitron'] text-cyan-400 mb-2">${videoData.title}</h2>
-                    <p class="text-gray-300">${videoData.game} - ${videoData.issue}</p>
-                </div>
-                
-                <!-- Video Player -->
-                <div class="bg-black border-2 border-cyan-500 mb-6 relative aspect-video">
-                    <video 
-                        id="video-player" 
-                        class="w-full h-full" 
-                        controls 
-                        preload="metadata"
-                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='videoPoster' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23000000;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23ff00ff;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%2300ffff;stop-opacity:0.3' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23videoPoster)'/%3E%3Ccircle cx='400' cy='225' r='50' fill='%23ff0000' opacity='0.8'/%3E%3Cpolygon points='380,205 380,245 420,225' fill='%23ffffff'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='24' font-weight='bold'%3E${videoData.game} Fix Tutorial%3C/text%3E%3Ctext x='400' y='330' text-anchor='middle' fill='%23cccccc' font-family='Arial' font-size='16'%3EDuration: ${videoData.duration} • Views: ${videoData.views}%3C/text%3E%3C/svg%3E"
-                    >
-                        <source src="${randomVideoUrl}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Problem Description -->
-                    <div class="game-card p-6">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-4">🔍 Problem Description</h3>
-                        <p class="text-gray-300 mb-4">${videoData.description}</p>
-                        <div class="space-y-2">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">Game:</span>
-                                <span class="text-white font-semibold">${videoData.game}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">Issue:</span>
-                                <span class="text-white font-semibold">${videoData.issue}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">Views:</span>
-                                <span class="text-cyan-400 font-semibold">${videoData.views}</span>
+                <div class="text-center py-16">
+                    <div class="loading-text mb-8">LOADING VIDEO...</div>
+                    <div class="flex justify-center">
+                        <div class="relative w-24 h-24">
+                            <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
+                                <circle id="video-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none" 
+                                        stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                                        style="transition: stroke-dashoffset 0.1s ease;"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="video-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Solution Overview -->
-                    <div class="game-card p-6">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-4">🔧 Solution Overview</h3>
-                        <p class="text-gray-300 mb-4">${videoData.solution}</p>
-                        <div class="space-y-3">
-                            <button class="w-full py-2 px-4 bg-green-600 hover:bg-green-700 text-white font-['Rajdhani'] font-bold transition-colors mark-helpful-btn" data-video='${JSON.stringify(videoData)}'>
-                                ${helpfulVideos.some(v => v.title === videoData.title) ? '✓ MARKED AS HELPFUL' : '✓ MARK AS HELPFUL'}
-                            </button>
-                            <button class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-['Rajdhani'] font-bold transition-colors copy-solution-btn" data-solution="${videoData.solution}">
-                                📋 COPY SOLUTION
-                            </button>
-                            <button class="w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white font-['Rajdhani'] font-bold transition-colors save-later-btn" data-video='${JSON.stringify(videoData)}'>
-                                ${savedVideos.some(v => v.title === videoData.title) ? '💾 SAVED' : '💾 SAVE FOR LATER'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex justify-center mt-6">
-                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 font-['Rajdhani'] text-lg font-bold transition-colors" onclick="hideVideoModal()">
-                        CLOSE
-                    </button>
                 </div>
             `;
             
             videoModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            
+            // Animate the circular progress bar
+            const progressCircle = document.getElementById('video-progress-circle');
+            const progressText = document.getElementById('video-progress-text');
+            const circumference = 251.2; // 2 * π * 40
+            let progress = 0;
+            
+            const progressInterval = setInterval(() => {
+                progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
+                const offset = circumference - (progress / 100) * circumference;
+                
+                progressCircle.style.strokeDashoffset = offset;
+                progressText.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    
+                    // Show the actual video content after loading completes
+                    setTimeout(() => {
+                        // Get random video URL
+                        const randomVideoUrl = randomVideos[Math.floor(Math.random() * randomVideos.length)];
+                        
+                        videoContent.innerHTML = `
+                            <div class="text-center mb-6">
+                                <h2 class="text-3xl font-bold font-['Orbitron'] text-cyan-400 mb-2">${videoData.title}</h2>
+                                <p class="text-gray-300">${videoData.game} - ${videoData.issue}</p>
+                            </div>
+                            
+                            <!-- Video Player -->
+                            <div class="bg-black border-2 border-cyan-500 mb-6 relative aspect-video">
+                                <video 
+                                    id="video-player" 
+                                    class="w-full h-full" 
+                                    controls 
+                                    preload="metadata"
+                                    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='videoPoster' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23000000;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23ff00ff;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%2300ffff;stop-opacity:0.3' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23videoPoster)'/%3E%3Ccircle cx='400' cy='225' r='50' fill='%23ff0000' opacity='0.8'/%3E%3Cpolygon points='380,205 380,245 420,225' fill='%23ffffff'/%3E%3Ctext x='400' y='300' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='24' font-weight='bold'%3E${videoData.game} Fix Tutorial%3C/text%3E%3Ctext x='400' y='330' text-anchor='middle' fill='%23cccccc' font-family='Arial' font-size='16'%3EDuration: ${videoData.duration} • Views: ${videoData.views}%3C/text%3E%3C/svg%3E"
+                                >
+                                    <source src="${randomVideoUrl}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Problem Description -->
+                                <div class="game-card p-6">
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">🔍 Problem Description</h3>
+                                    <p class="text-gray-300 mb-4">${videoData.description}</p>
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-400">Game:</span>
+                                            <span class="text-white font-semibold">${videoData.game}</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-400">Issue:</span>
+                                            <span class="text-white font-semibold">${videoData.issue}</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-400">Views:</span>
+                                            <span class="text-cyan-400 font-semibold">${videoData.views}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Solution Overview -->
+                                <div class="game-card p-6">
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-4">🔧 Solution Overview</h3>
+                                    <p class="text-gray-300 mb-4">${videoData.solution}</p>
+                                    <div class="space-y-3">
+                                        <button class="w-full py-2 px-4 bg-green-600 hover:bg-green-700 text-white font-['Rajdhani'] font-bold transition-colors mark-helpful-btn" data-video='${JSON.stringify(videoData)}'>
+                                            ${helpfulVideos.some(v => v.title === videoData.title) ? '✓ MARKED AS HELPFUL' : '✓ MARK AS HELPFUL'}
+                                        </button>
+                                        <button class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-['Rajdhani'] font-bold transition-colors copy-solution-btn" data-solution="${videoData.solution}">
+                                            📋 COPY SOLUTION
+                                        </button>
+                                        <button class="w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white font-['Rajdhani'] font-bold transition-colors save-later-btn" data-video='${JSON.stringify(videoData)}'>
+                                            ${savedVideos.some(v => v.title === videoData.title) ? '💾 SAVED' : '💾 SAVE FOR LATER'}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-center mt-6">
+                                <button class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 font-['Rajdhani'] text-lg font-bold transition-colors" onclick="hideVideoModal()">
+                                    CLOSE
+                                </button>
+                            </div>
+                        `;
+                    }, 200);
+                }
+            }, 100);
         }
 
         function hideVideoModal() {
@@ -3630,41 +4380,82 @@
             const bundleModal = document.getElementById('bundle-modal');
             const bundleContent = document.getElementById('bundle-content');
             
+            // Show modal with loading animation first
             bundleContent.innerHTML = `
-                <h2 class="text-2xl font-bold font-['Orbitron'] text-cyan-400 mb-4">${bundleData.title}</h2>
-                <div class="mb-4">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-2xl font-bold text-green-400">${bundleData.price}</span>
-                        ${bundleData.originalPrice ? `<span class="text-gray-300 line-through text-lg">${bundleData.originalPrice}</span>` : ''}
-                        <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">${bundleData.discount}</span>
-                    </div>
-                    <div class="text-yellow-400 mb-4">${bundleData.rating}</div>
-                </div>
-                <div class="mb-6">
-                    <h3 class="text-lg font-bold text-cyan-300 mb-3">📦 Games Included (${bundleData.games.length})</h3>
-                    <div class="space-y-2 max-h-64 overflow-y-auto pr-2" style="scrollbar-width: thin; scrollbar-color: #00ffff #1a1a2e;">
-                        ${bundleData.games.map(game => `
-                            <div class="flex items-center space-x-3 p-3 bg-black bg-opacity-30 rounded border border-gray-700">
-                                <div class="w-8 h-8 bg-gradient-to-br from-cyan-500 to-purple-500 rounded flex items-center justify-center">
-                                    <span class="text-white font-bold text-sm">🎮</span>
-                                </div>
-                                <span class="text-white font-semibold">${game}</span>
+                <div class="text-center py-16">
+                    <div class="loading-text mb-8">LOADING BUNDLE...</div>
+                    <div class="flex justify-center">
+                        <div class="relative w-24 h-24">
+                            <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
+                                <circle id="bundle-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none" 
+                                        stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                                        style="transition: stroke-dashoffset 0.1s ease;"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="bundle-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
                             </div>
-                        `).join('')}
+                        </div>
                     </div>
-                </div>
-                <div class="flex space-x-3">
-                    <button class="cyber-button flex-1 py-3 font-['Rajdhani'] text-lg font-bold buy-bundle-btn" data-bundle='${JSON.stringify(bundleData)}'>
-                        BUY BUNDLE
-                    </button>
-                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 font-bold transition-colors" id="close-bundle-modal-btn">
-                        CLOSE
-                    </button>
                 </div>
             `;
             
             bundleModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            
+            // Animate the circular progress bar
+            const progressCircle = document.getElementById('bundle-progress-circle');
+            const progressText = document.getElementById('bundle-progress-text');
+            const circumference = 251.2; // 2 * π * 40
+            let progress = 0;
+            
+            const progressInterval = setInterval(() => {
+                progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
+                const offset = circumference - (progress / 100) * circumference;
+                
+                progressCircle.style.strokeDashoffset = offset;
+                progressText.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    
+                    // Show the actual bundle content after loading completes
+                    setTimeout(() => {
+                        bundleContent.innerHTML = `
+                            <h2 class="text-2xl font-bold font-['Orbitron'] text-cyan-400 mb-4">${bundleData.title}</h2>
+                            <div class="mb-4">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <span class="text-2xl font-bold text-green-400">${bundleData.price}</span>
+                                    ${bundleData.originalPrice ? `<span class="text-gray-300 line-through text-lg">${bundleData.originalPrice}</span>` : ''}
+                                    <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-2 py-1 rounded-full text-sm font-bold">${bundleData.discount}</span>
+                                </div>
+                                <div class="text-yellow-400 mb-4">${bundleData.rating}</div>
+                            </div>
+                            <div class="mb-6">
+                                <h3 class="text-lg font-bold text-cyan-300 mb-3">📦 Games Included (${bundleData.games.length})</h3>
+                                <div class="space-y-2 max-h-64 overflow-y-auto pr-2" style="scrollbar-width: thin; scrollbar-color: #00ffff #1a1a2e;">
+                                    ${bundleData.games.map(game => `
+                                        <div class="flex items-center space-x-3 p-3 bg-black bg-opacity-30 rounded border border-gray-700">
+                                            <div class="w-8 h-8 bg-gradient-to-br from-cyan-500 to-purple-500 rounded flex items-center justify-center">
+                                                <span class="text-white font-bold text-sm">🎮</span>
+                                            </div>
+                                            <span class="text-white font-semibold">${game}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            <div class="flex space-x-3">
+                                <button class="cyber-button flex-1 py-3 font-['Rajdhani'] text-lg font-bold buy-bundle-btn" data-bundle='${JSON.stringify(bundleData)}'>
+                                    BUY BUNDLE
+                                </button>
+                                <button class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 font-bold transition-colors" id="close-bundle-modal-btn">
+                                    CLOSE
+                                </button>
+                            </div>
+                        `;
+                    }, 200);
+                }
+            }, 100);
         }
 
         function hideBundleModal() {
@@ -3700,21 +4491,26 @@
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Check if user is logged in
-                if (!isLoggedIn) {
-                    showNotification('Please log in to purchase games!', 'error');
-                    showAuthModal();
-                    showLoginForm();
-                    return;
-                }
+                // Show circular loading progress bar for 2 seconds
+                showCircularLoading();
                 
-                const button = e.target.classList.contains('buy-now-btn') ? e.target : e.target.closest('.buy-now-btn');
-                try {
-                    const gameData = JSON.parse(button.getAttribute('data-game'));
-                    addToCart(gameData);
-                } catch (error) {
-                    console.error('Error parsing game data:', error);
-                }
+                setTimeout(() => {
+                    // Check if user is logged in
+                    if (!isLoggedIn) {
+                        showNotification('Please log in to purchase games!', 'error');
+                        showAuthModal();
+                        showLoginForm();
+                        return;
+                    }
+                    
+                    const button = e.target.classList.contains('buy-now-btn') ? e.target : e.target.closest('.buy-now-btn');
+                    try {
+                        const gameData = JSON.parse(button.getAttribute('data-game'));
+                        addToCart(gameData);
+                    } catch (error) {
+                        console.error('Error parsing game data:', error);
+                    }
+                }, 2200);
             }
             
             // Handle BUY BUNDLE button click
@@ -3868,7 +4664,30 @@
                 const videoTitle = button.getAttribute('data-video-title');
                 removeSavedVideo(videoTitle);
             }
+            
+            // Handle download button click
+            if (e.target.classList.contains('download-btn') || e.target.closest('.download-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = e.target.classList.contains('download-btn') ? e.target : e.target.closest('.download-btn');
+                const platform = button.getAttribute('data-platform');
+                handleDownload(platform);
+            }
+            
+            // Handle Play Store button click
+            if (e.target.classList.contains('playstore-btn') || e.target.closest('.playstore-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                handleStoreRedirect('playstore');
+            }
+            
+            // Handle Microsoft Store button click
+            if (e.target.classList.contains('microsoft-store-btn') || e.target.closest('.microsoft-store-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                handleStoreRedirect('microsoft');
+            }
         });
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99661b44505bc51e',t:'MTc2MTc3NjkxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996eec1c81fcc51e',t:'MTc2MTg2OTM1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
