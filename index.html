@@ -1300,11 +1300,11 @@
   </main><!-- Mobile Game Category Navigation (only visible on home page) -->
   <div class="mobile-game-tabs" id="mobile-game-tabs"><button class="tab-button active" data-tab="featured">
     <svg class="tab-icon" viewbox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-    </svg><span>FEATURED</span> </button> <button class="tab-button" data-tab="new-releases">
+    </svg><span>IN-STEAM</span> </button> <button class="tab-button" data-tab="new-releases">
     <svg class="tab-icon" viewbox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z" />
-    </svg><span>NEW</span> </button> <button class="tab-button" data-tab="best-sellers">
+    </svg><span>OTT APPS</span> </button> <button class="tab-button" data-tab="best-sellers">
     <svg class="tab-icon" viewbox="0 0 24 24"><path d="M16 6L18.29 8.29L13.41 13.17L9.41 9.17L2 16.59L3.41 18L9.41 12L13.41 16L19.71 9.71L22 12V6H16Z" />
-    </svg><span>TRENDING</span> </button>
+    </svg><span>NON-STEAM</span> </button>
   </div><!-- Mobile Bottom Navigation for Main Pages -->
   <div class="mobile-bottom-nav" id="mobile-bottom-nav"><button class="nav-button active" data-page="home">
     <svg class="nav-icon" viewbox="0 0 24 24"><path d="M10 20V14H14V20H19V12H22L12 3L2 12H5V20H10Z" />
@@ -1451,7 +1451,7 @@
             "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='330' viewBox='0 0 220 330'%3E%3Cdefs%3E%3ClinearGradient id='poster8' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23003366;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23006633;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='220' height='330' fill='url(%23poster8)'/%3E%3Crect x='60' y='50' width='100' height='100' fill='%23000' opacity='0.4'/%3E%3Ccircle cx='110' cy='200' r='40' fill='%23fff' opacity='0.7'/%3E%3Crect x='95' y='280' width='30' height='30' fill='%23ff00ff'/%3E%3C/svg%3E"
         ];
 
-        // Featured Games data
+        // IN-STEAM Games data (5 cards)
         const featuredGames = [
             {
                 title: "Neon Runner 2077",
@@ -1460,7 +1460,8 @@
                 discount: "25% OFF",
                 rating: "★★★★★",
                 stock: "In Stock",
-                image: "images/img1.png"
+                steamId: "STEAM_001",
+                platform: "Steam"
             },
             {
                 title: "Cyber Warfare Elite",
@@ -1469,7 +1470,8 @@
                 discount: "30% OFF",
                 rating: "★★★★☆",
                 stock: "Out of Stock",
-                image: "images/img1.png"
+                steamId: "STEAM_002",
+                platform: "Steam"
             },
             {
                 title: "Matrix Hacker",
@@ -1478,7 +1480,8 @@
                 discount: "NEW",
                 rating: "★★★★★",
                 stock: "In Stock",
-                image: "images/img1.png"
+                steamId: "STEAM_003",
+                platform: "Steam"
             },
             {
                 title: "Synthwave City",
@@ -1487,7 +1490,8 @@
                 discount: "18% OFF",
                 rating: "★★★★☆",
                 stock: "In Stock",
-                image: "images/img1.png"
+                steamId: "STEAM_004",
+                platform: "Steam"
             },
             {
                 title: "Digital Ghost",
@@ -1496,105 +1500,166 @@
                 discount: "30% OFF",
                 rating: "★★★★★",
                 stock: "Out of Stock",
-                image: "images/img1.png"
+                steamId: "STEAM_005",
+                platform: "Steam"
             }
         ];
 
-        // New Releases data
+        // OTT APPS data (6 cards)
         const newReleases = [
             {
-                title: "Quantum Breach",
-                price: "$69.99",
+                title: "Netflix Gaming",
+                price: "FREE",
                 originalPrice: "",
-                discount: "NEW",
+                discount: "FREE",
                 rating: "★★★★★",
-                stock: "In Stock",
-                image: "images/img1.png"
+                stock: "Available",
+                appSize: "125 MB",
+                platform: "Netflix"
             },
             {
-                title: "Neural Network",
-                price: "$54.99",
+                title: "Disney+ Hotstar",
+                price: "FREE",
                 originalPrice: "",
-                discount: "NEW",
+                discount: "FREE",
                 rating: "★★★★☆",
-                stock: "In Stock",
-                image: "images/img1.png"
+                stock: "Available",
+                appSize: "89 MB",
+                platform: "Disney+"
             },
             {
-                title: "Code Assassin",
-                price: "$49.99",
+                title: "Amazon Prime Video",
+                price: "FREE",
                 originalPrice: "",
-                discount: "NEW",
+                discount: "FREE",
                 rating: "★★★★★",
-                stock: "Out of Stock",
-                image: "images/img1.png"
+                stock: "Available",
+                appSize: "156 MB",
+                platform: "Prime Video"
             },
             {
-                title: "Virtual Reality X",
-                price: "$64.99",
+                title: "HBO Max",
+                price: "FREE",
                 originalPrice: "",
-                discount: "NEW",
+                discount: "FREE",
                 rating: "★★★★☆",
-                stock: "In Stock",
-                image: "images/img1.png"
+                stock: "Available",
+                appSize: "98 MB",
+                platform: "HBO Max"
             },
             {
-                title: "Cyber Protocol",
-                price: "$59.99",
+                title: "Apple TV+",
+                price: "FREE",
                 originalPrice: "",
-                discount: "NEW",
+                discount: "FREE",
                 rating: "★★★★★",
-                stock: "Out of Stock",
-                image: "images/img1.png"
+                stock: "Available",
+                appSize: "112 MB",
+                platform: "Apple TV+"
+            },
+            {
+                title: "Paramount+",
+                price: "FREE",
+                originalPrice: "",
+                discount: "FREE",
+                rating: "★★★★☆",
+                stock: "Available",
+                appSize: "87 MB",
+                platform: "Paramount+"
             }
         ];
 
-        // Best Sellers data
+        // NON-STEAM Games data (9 cards)
         const bestSellers = [
             {
-                title: "Pixel Warrior",
+                title: "Epic Legends",
                 price: "$29.99",
                 originalPrice: "$39.99",
                 discount: "25% OFF",
                 rating: "★★★★★",
                 stock: "In Stock",
-                image: "images/img1.png"
+                platform: "Epic Games",
+                launcher: "Epic Games Store"
             },
             {
-                title: "Space Invader Pro",
+                title: "Origin Fighter",
                 price: "$24.99",
                 originalPrice: "$34.99",
                 discount: "29% OFF",
                 rating: "★★★★★",
                 stock: "In Stock",
-                image: "images/img1.png"
+                platform: "Origin",
+                launcher: "EA Origin"
             },
             {
-                title: "Retro Fighter",
+                title: "Uplay Adventure",
                 price: "$19.99",
                 originalPrice: "$29.99",
                 discount: "33% OFF",
                 rating: "★★★★☆",
                 stock: "Out of Stock",
-                image: "images/img1.png"
+                platform: "Uplay",
+                launcher: "Ubisoft Connect"
             },
             {
-                title: "Neon Arcade",
+                title: "GOG Classic",
                 price: "$34.99",
                 originalPrice: "$44.99",
                 discount: "22% OFF",
                 rating: "★★★★★",
                 stock: "In Stock",
-                image: "images/img1.png"
+                platform: "GOG",
+                launcher: "GOG Galaxy"
             },
             {
-                title: "Cyber Classic",
+                title: "Battle.net Hero",
                 price: "$27.99",
                 originalPrice: "$39.99",
                 discount: "30% OFF",
                 rating: "★★★★☆",
                 stock: "Out of Stock",
-                image: "images/img1.png"
+                platform: "Battle.net",
+                launcher: "Battle.net"
+            },
+            {
+                title: "Microsoft Store Game",
+                price: "$22.99",
+                originalPrice: "$32.99",
+                discount: "30% OFF",
+                rating: "★★★★★",
+                stock: "In Stock",
+                platform: "Microsoft Store",
+                launcher: "Xbox App"
+            },
+            {
+                title: "Rockstar Legends",
+                price: "$45.99",
+                originalPrice: "$59.99",
+                discount: "23% OFF",
+                rating: "★★★★☆",
+                stock: "In Stock",
+                platform: "Rockstar",
+                launcher: "Rockstar Games Launcher"
+            },
+            {
+                title: "Bethesda Quest",
+                price: "$18.99",
+                originalPrice: "$25.99",
+                discount: "27% OFF",
+                rating: "★★★★★",
+                stock: "In Stock",
+                platform: "Bethesda",
+                launcher: "Bethesda.net Launcher"
+            },
+            {
+                title: "Indie Masterpiece",
+                price: "$15.99",
+                originalPrice: "$21.99",
+                discount: "27% OFF",
+                rating: "★★★★☆",
+                stock: "In Stock",
+                platform: "Itch.io",
+                launcher: "Itch.io App"
             }
         ];
 
@@ -2194,7 +2259,7 @@
             ownedGameCard.className = 'game-card p-4 relative overflow-hidden';
             
             // Get random poster background
-            const randomPoster = "images/img1.png";
+            const randomPoster = gamingPosters[Math.floor(Math.random() * gamingPosters.length)];
             
             const achievementPercentage = Math.round((game.achievements / game.totalAchievements) * 100);
             
@@ -2294,47 +2359,74 @@
             return videoCard;
         }
 
-        // Create game card HTML
+        // Create game card HTML with different details for each section
         function createGameCard(game) {
-    const gameCard = document.createElement('div');
-    gameCard.className = 'game-card overflow-hidden relative w-full aspect-[2/3] cursor-pointer';
-
-    // Use the game's unique image
-    const gameImage = game.image || "images/default-poster.png"; // Fallback to default if no image is set
-
-    gameCard.innerHTML = `
-        <div class="absolute inset-0">
-            <img src="${gameImage}" alt="${game.title} poster" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div class="relative z-10 h-full flex flex-col">
-            <div class="flex-1 p-3 flex flex-col justify-between">
-                <div class="flex justify-between items-start">
-                    ${game.isBundle ? '<span class="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-bold">📦 BUNDLE</span>' : '<div></div>'}
-                    ${game.isBundle ? 
-                        '<div></div>' : 
-                        `<span class="px-2 py-1 rounded-full text-xs font-bold ${game.stock === 'In Stock' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">${game.stock}</span>`
-                    }
+            const gameCard = document.createElement('div');
+            gameCard.className = 'game-card overflow-hidden relative w-full aspect-[2/3] cursor-pointer';
+            
+            // Get random poster background
+            const randomPoster = gamingPosters[Math.floor(Math.random() * gamingPosters.length)];
+            
+            // Determine card content based on platform/section
+            let cardContent = '';
+            let topBadge = '';
+            let statusBadge = '';
+            let additionalInfo = '';
+            let buttonText = 'BUY NOW';
+            
+            if (game.isBundle) {
+                topBadge = '<span class="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-bold">📦 BUNDLE</span>';
+                buttonText = 'VIEW BUNDLE';
+            } else if (game.platform === 'Steam') {
+                // IN-STEAM section
+                topBadge = '<span class="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-bold">🎮 STEAM</span>';
+                statusBadge = `<span class="px-2 py-1 rounded-full text-xs font-bold ${game.stock === 'In Stock' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">${game.stock}</span>`;
+                additionalInfo = `<div class="text-xs text-gray-300 mb-2">Steam ID: ${game.steamId}</div>`;
+                buttonText = game.stock === 'Out of Stock' ? 'OUT OF STOCK' : 'BUY NOW';
+            } else if (game.platform && ['Netflix', 'Disney+', 'Prime Video', 'HBO Max', 'Apple TV+', 'Paramount+'].includes(game.platform)) {
+                // OTT APPS section
+                topBadge = '<span class="bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold">📺 OTT</span>';
+                statusBadge = `<span class="px-2 py-1 rounded-full text-xs font-bold bg-green-600 text-white">${game.stock}</span>`;
+                additionalInfo = `<div class="text-xs text-gray-300 mb-2">Size: ${game.appSize}</div>`;
+                buttonText = 'DOWNLOAD';
+            } else {
+                // NON-STEAM section
+                topBadge = '<span class="bg-orange-600 text-white px-2 py-1 rounded-full text-xs font-bold">🚀 NON-STEAM</span>';
+                statusBadge = `<span class="px-2 py-1 rounded-full text-xs font-bold ${game.stock === 'In Stock' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">${game.stock}</span>`;
+                additionalInfo = `<div class="text-xs text-gray-300 mb-2">Launcher: ${game.launcher}</div>`;
+                buttonText = game.stock === 'Out of Stock' ? 'OUT OF STOCK' : 'BUY NOW';
+            }
+            
+            gameCard.innerHTML = `
+                <div class="absolute inset-0">
+                    <img src="${randomPoster}" alt="Gaming poster" class="w-full h-full object-cover">
                 </div>
-                <div class="bg-black bg-opacity-40 backdrop-blur-sm -mx-3 -mb-3 px-3 py-3 pb-6">
-                    <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 mb-3 leading-tight">${game.title}</h3>
-                    <div class="flex flex-col space-y-2">
-                        <div class="flex items-center space-x-2">
-                            <span class="text-lg font-bold text-green-400">${game.price}</span>
-                            ${game.originalPrice ? `<span class="text-gray-300 line-through text-xs">${game.originalPrice}</span>` : ''}
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div class="relative z-10 h-full flex flex-col">
+                    <div class="flex-1 p-3 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            ${topBadge}
+                            ${statusBadge}
                         </div>
-                        <button class="${game.isBundle ? 'cyber-button' : (game.stock === 'Out of Stock' ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'cyber-button')} px-3 py-1 font-['Rajdhani'] text-xs w-full ${game.isBundle ? 'bundle-card-btn' : 'buy-now-btn'}" ${game.isBundle ? `data-bundle='${JSON.stringify(game)}'` : `data-game='${JSON.stringify(game)}'`} ${!game.isBundle && game.stock === 'Out of Stock' ? 'disabled' : ''}>
-                            ${game.isBundle ? 'VIEW BUNDLE' : (game.stock === 'Out of Stock' ? 'OUT OF STOCK' : 'BUY NOW')}
-                        </button>
+                        <div class="bg-black bg-opacity-40 backdrop-blur-sm -mx-3 -mb-3 px-3 py-3 pb-6">
+                            <h3 class="text-sm font-bold font-['Orbitron'] text-cyan-400 mb-2 leading-tight">${game.title}</h3>
+                            ${additionalInfo}
+                            <div class="flex flex-col space-y-2">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-lg font-bold text-green-400">${game.price}</span>
+                                    ${game.originalPrice ? `<span class="text-gray-300 line-through text-xs">${game.originalPrice}</span>` : ''}
+                                </div>
+                                <button class="${game.isBundle ? 'cyber-button' : (game.stock === 'Out of Stock' ? 'bg-gray-600 text-gray-300 cursor-not-allowed' : 'cyber-button')} px-3 py-1 font-['Rajdhani'] text-xs w-full ${game.isBundle ? 'bundle-card-btn' : 'buy-now-btn'}" ${game.isBundle ? `data-bundle='${JSON.stringify(game)}'` : `data-game='${JSON.stringify(game)}'`} ${!game.isBundle && game.stock === 'Out of Stock' ? 'disabled' : ''}>
+                                    ${buttonText}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    `;
-
-    return gameCard;
-}
-
+            `;
+            
+            return gameCard;
+        }
 
         // Game Bundles data
         const gameBundles = [
@@ -2350,8 +2442,7 @@
                     "Cyber Warfare Elite", 
                     "Matrix Hacker",
                     "Digital Ghost"
-                ],
-                image: "images/img1.png"
+                ]
             },
             {
                 title: "Indie Classics Pack",
@@ -2379,8 +2470,7 @@
                     "Neon Speed Racer",
                     "Cyber Highway",
                     "Quantum Racing"
-                ],
-                image: "images/img1.png"
+                ]
             },
             {
                 title: "Strategy Master Collection",
@@ -2395,8 +2485,7 @@
                     "Cyber Protocol",
                     "Quantum Breach",
                     "Virtual Reality X"
-                ],
-                image: "images/img1.png"
+                ]
             },
             {
                 title: "Complete Gamer Pack",
@@ -2413,8 +2502,7 @@
                     "Neon Runner 2077",
                     "Cyber Warfare Elite",
                     "Space Invader Pro"
-                ],
-                image: "images/img1.png"
+                ]
             }
         ];
 
@@ -2891,28 +2979,37 @@
         let userGiveawayEntries = [];
 
         function updateAuthButton() {
-  const authButton = document.getElementById('auth-button');
-  const authText = authButton.querySelector('.auth-text');
-  const authIcon = authButton.querySelector('.auth-icon svg path');
-  const cartSection = document.getElementById('cart-section');
-  const ownedGamesSection = document.getElementById('owned-games-section');
-  const accountMenuItem = document.querySelector('[data-page="account"]');
-
-  if (isLoggedIn) {
-    authText.textContent = 'Logout';
-    authIcon.setAttribute('d', 'M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.59L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z');
-    cartSection.style.display = 'block';
-    if (ownedGamesSection) ownedGamesSection.style.display = 'block';
-    if (accountMenuItem) accountMenuItem.style.display = 'block';
-  } else {
-    authText.textContent = 'Login';
-    authIcon.setAttribute('d', 'M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z');
-    cartSection.style.display = 'none';
-    if (ownedGamesSection) ownedGamesSection.style.display = 'none';
-    if (accountMenuItem) accountMenuItem.style.display = 'none';
-  }
-}
-
+            const authButton = document.getElementById('auth-button');
+            const authText = authButton.querySelector('.auth-text');
+            const authIcon = authButton.querySelector('.auth-icon svg path');
+            const cartSection = document.getElementById('cart-section');
+            const ownedGamesSection = document.getElementById('owned-games-section');
+            const accountMenuItem = document.querySelector('[data-page="account"]');
+            
+            if (isLoggedIn) {
+                authText.textContent = 'Logout';
+                // Change icon to logout icon
+                authIcon.setAttribute('d', 'M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.59L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z');
+                cartSection.style.display = 'block';
+                if (ownedGamesSection) {
+                    ownedGamesSection.style.display = 'block';
+                }
+                if (accountMenuItem) {
+                    accountMenuItem.style.display = 'block';
+                }
+            } else {
+                authText.textContent = 'Login';
+                // Change icon to login icon
+                authIcon.setAttribute('d', 'M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 11.5V9.5L21 9V11L15 11.5ZM11 15.5C11 16.3 10.3 17 9.5 17S8 16.3 8 15.5 8.7 14 9.5 14 11 14.7 11 15.5ZM16 15.5C16 16.3 15.3 17 14.5 17S13 16.3 13 15.5 13.7 14 14.5 14 16 14.7 16 15.5ZM12 20.5C12.8 20.5 13.5 19.8 13.5 19S12.8 17.5 12 17.5 10.5 18.2 10.5 19 11.2 20.5 12 20.5Z');
+                cartSection.style.display = 'none';
+                if (ownedGamesSection) {
+                    ownedGamesSection.style.display = 'none';
+                }
+                if (accountMenuItem) {
+                    accountMenuItem.style.display = 'none';
+                }
+            }
+        }
 
         function showAuthModal() {
             const authModal = document.getElementById('auth-modal');
@@ -2920,12 +3017,11 @@
             document.body.style.overflow = 'hidden';
         }
 
-       function hideAuthModal() {
-  const authModal = document.getElementById('auth-modal');
-  authModal.classList.add('hidden');
-  document.body.style.overflow = 'auto';
-}
-
+        function hideAuthModal() {
+            const authModal = document.getElementById('auth-modal');
+            authModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
 
         function showLoginForm() {
             document.getElementById('login-form').classList.remove('hidden');
@@ -2938,121 +3034,98 @@
         }
 
         function handleLogin(email, password) {
-  showAuthLoading('LOGGING IN...');
-  auth.signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      isLoggedIn = true;
-      currentUser = {
-        email: user.email,
-        username: user.displayName || user.email.split('@')[0],
-        uid: user.uid,
-        steamId: user.uid // Placeholder for Steam ID
-      };
-      updateAuthButton();
-      hideAuthModal();
-      showNotification(`Login successful! Welcome back, ${currentUser.username}!`, 'success');
-      if (currentPage === 'account') updateAccountPage();
-    })
-    .catch((error) => {
-      hideAuthModal();
-      showNotification(`Login failed: ${error.message}`, 'error');
-    });
-}
-
-
-
-       function handleSignup(username, email, password) {
-    showAuthLoading('CREATING ACCOUNT...');
-
-    auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed up
-            const user = userCredential.user;
-
-            // Update user profile with the username
-            return user.updateProfile({
-                displayName: username
-            });
-        })
-        .then(() => {
-            // User profile updated successfully
-            isLoggedIn = true;
-            currentUser = {
-                email: auth.currentUser.email,
-                username: auth.currentUser.displayName,
-                uid: auth.currentUser.uid
-            };
-
-            // Save user details to the Realtime Database
-            const userRef = database.ref('users/' + auth.currentUser.uid);
-            userRef.set({
-                username: username,
-                email: email,
-                createdAt: new Date().toISOString()
-            });
-
-            updateAuthButton();
-            hideAuthModal();
-            showNotification(`Account created successfully! Welcome, ${currentUser.username}!`, 'success');
-
-            // Redirect to HOME page
-            showPage('home');
-
-            // Update account page if currently viewing it
-            if (currentPage === 'account') {
-                updateAccountPage();
+            // Simulate login process
+            if (email && password) {
+                showAuthLoading('LOGGING IN...');
+                
+                // Simulate login delay
+                setTimeout(() => {
+                    isLoggedIn = true;
+                    currentUser = {
+                        email: email,
+                        username: email.split('@')[0],
+                        steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
+                    };
+                    updateAuthButton();
+                    hideAuthModal();
+                    
+                    // Show success message
+                    showNotification('Login successful! Welcome back, ' + currentUser.username + '!', 'success');
+                    
+                    // Update account page if currently viewing it
+                    if (currentPage === 'account') {
+                        updateAccountPage();
+                    }
+                    
+                    // Clear form
+                    document.getElementById('login-form-element').reset();
+                }, 2200); // Wait for loading animation to complete
             }
-        })
-        .catch((error) => {
-            hideAuthModal();
-            showNotification(`Signup failed: ${error.message}`, 'error');
-        });
-}
+        }
 
+        function handleSignup(username, email, password) {
+            // Simulate signup process
+            if (username && email && password) {
+                showAuthLoading('CREATING ACCOUNT...');
+                
+                // Simulate signup delay
+                setTimeout(() => {
+                    isLoggedIn = true;
+                    currentUser = {
+                        email: email,
+                        username: username,
+                        steamId: 'STEAM_' + Math.random().toString(36).substr(2, 9).toUpperCase()
+                    };
+                    updateAuthButton();
+                    hideAuthModal();
+                    
+                    // Show success message
+                    showNotification('Account created successfully! Welcome, ' + username + '!', 'success');
+                    
+                    // Update account page if currently viewing it
+                    if (currentPage === 'account') {
+                        updateAccountPage();
+                    }
+                    
+                    // Clear form
+                    document.getElementById('signup-form-element').reset();
+                }, 2200); // Wait for loading animation to complete
+            }
+        }
 
-function handleLogout() {
-  auth.signOut()
-    .then(() => {
-      isLoggedIn = false;
-      currentUser = null;
-      updateAuthButton();
-      showNotification('Logged out successfully!', 'info');
-    })
-    .catch((error) => {
-      showNotification(`Logout failed: ${error.message}`, 'error');
-    });
-}
-
-
+        function handleLogout() {
+            isLoggedIn = false;
+            currentUser = null;
+            userGiveawayEntries = [];
+            updateAuthButton();
+            showNotification('Logged out successfully!', 'info');
+        }
 
         function showNotification(message, type = 'info') {
-  // Create notification element
-  const notification = document.createElement('div');
-  notification.className = `fixed top-4 right-4 z-50 px-6 py-3 font-['Rajdhani'] font-semibold text-white transform translate-x-full transition-transform duration-300 ${
-    type === 'success' ? 'bg-green-600' :
-    type === 'error' ? 'bg-red-600' :
-    'bg-blue-600'
-  }`;
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
-
-  // Slide in
-  setTimeout(() => {
-    notification.style.transform = 'translateX(0)';
-  }, 100);
-
-  // Slide out and remove
-  setTimeout(() => {
-    notification.style.transform = 'translateX(full)';
-    setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 300);
-  }, 3000);
-}
-
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 font-['Rajdhani'] font-semibold text-white transform translate-x-full transition-transform duration-300 ${
+                type === 'success' ? 'bg-green-600' : 
+                type === 'error' ? 'bg-red-600' : 
+                'bg-blue-600'
+            }`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Slide in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Slide out and remove
+            setTimeout(() => {
+                notification.style.transform = 'translateX(full)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
 
         // Loading functionality
         function showLoading() {
@@ -3079,55 +3152,55 @@ function handleLogout() {
 
         // Auth loading functionality with circular progress
         function showAuthLoading(message) {
-  const authModal = document.getElementById('auth-modal');
-  const authContent = authModal.querySelector('.bg-gradient-to-br');
-
-  // Store original content
-  const originalContent = authContent.innerHTML;
-
-  // Show loading animation
-  authContent.innerHTML = `
-    <div class="text-center py-16">
-      <div class="loading-text mb-8">${message}</div>
-      <div class="flex justify-center">
-        <div class="relative w-24 h-24">
-          <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
-            <circle id="auth-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none"
-                    stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
-                    style="transition: stroke-dashoffset 0.1s ease;"/>
-          </svg>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <span id="auth-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // Animate the circular progress bar
-  const progressCircle = document.getElementById('auth-progress-circle');
-  const progressText = document.getElementById('auth-progress-text');
-  const circumference = 251.2; // 2 * π * 40
-  let progress = 0;
-
-  const progressInterval = setInterval(() => {
-    progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
-    const offset = circumference - (progress / 100) * circumference;
-
-    progressCircle.style.strokeDashoffset = offset;
-    progressText.textContent = progress + '%';
-
-    if (progress >= 100) {
-      clearInterval(progressInterval);
-      // Restore original content after loading completes
-      setTimeout(() => {
-        authContent.innerHTML = originalContent;
-      }, 200);
-    }
-  }, 100);
-}
-
+            const authModal = document.getElementById('auth-modal');
+            const authContent = authModal.querySelector('.bg-gradient-to-br');
+            
+            // Store original content
+            const originalContent = authContent.innerHTML;
+            
+            // Show loading animation
+            authContent.innerHTML = `
+                <div class="text-center py-16">
+                    <div class="loading-text mb-8">${message}</div>
+                    <div class="flex justify-center">
+                        <div class="relative w-24 h-24">
+                            <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" stroke="#00ffff" stroke-width="4" fill="none" opacity="0.3"/>
+                                <circle id="auth-progress-circle" cx="50" cy="50" r="40" stroke="#ff00ff" stroke-width="4" fill="none" 
+                                        stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                                        style="transition: stroke-dashoffset 0.1s ease;"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="auth-progress-text" class="text-cyan-400 font-bold text-lg">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Animate the circular progress bar
+            const progressCircle = document.getElementById('auth-progress-circle');
+            const progressText = document.getElementById('auth-progress-text');
+            const circumference = 251.2; // 2 * π * 40
+            let progress = 0;
+            
+            const progressInterval = setInterval(() => {
+                progress += 5; // Increment by 5% every 100ms (20 steps = 2 seconds)
+                const offset = circumference - (progress / 100) * circumference;
+                
+                progressCircle.style.strokeDashoffset = offset;
+                progressText.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    
+                    // Restore original content after loading completes
+                    setTimeout(() => {
+                        authContent.innerHTML = originalContent;
+                    }, 200);
+                }
+            }, 100);
+        }
 
         // Tab loading functionality - now shows full screen loading for 2 seconds
         function showTabLoading() {
@@ -3762,27 +3835,12 @@ function handleLogout() {
             });
 
             document.getElementById('signup-form-element').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('signup-username').value.trim();
-    const email = document.getElementById('signup-email').value.trim();
-    const password = document.getElementById('signup-password').value;
-
-    // Basic validation
-    if (!username || username.length < 3) {
-        showNotification('Username must be at least 3 characters.', 'error');
-        return;
-    }
-    if (!email || !email.includes('@')) {
-        showNotification('Please enter a valid email.', 'error');
-        return;
-    }
-    if (password.length < 6) {
-        showNotification('Password must be at least 6 characters.', 'error');
-        return;
-    }
-
-    handleSignup(username, email, password);
-});
+                e.preventDefault();
+                const username = document.getElementById('signup-username').value;
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                handleSignup(username, email, password);
+            });
 
             // Account page login button
             document.getElementById('account-login-btn').addEventListener('click', function() {
@@ -4723,78 +4781,5 @@ function handleLogout() {
             }
         });
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996f02d09770c51e',t:'MTc2MTg3MDI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><!-- Add this before the closing </body> tag -->
-<script>
-  // Initialize Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyChh8kT1qmGZ6a6THiLz1CC93JSqCgsPrc",
-    authDomain: "cheapsteam-b7ac0.firebaseapp.com",
-    databaseURL: "https://cheapsteam-b7ac0-default-rtdb.firebaseio.com",
-    projectId: "cheapsteam-b7ac0",
-    storageBucket: "cheapsteam-b7ac0.firebasestorage.app",
-    messagingSenderId: "636932131547",
-    appId: "1:636932131547:web:4c48ff9fb447b56c7c5afe"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const database = firebase.database();
-
-  // Authentication state listener
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      isLoggedIn = true;
-      currentUser = {
-        email: user.email,
-        username: user.displayName || user.email.split('@')[0],
-        uid: user.uid
-      };
-      updateAuthButton();
-      if (currentPage === 'account') updateAccountPage();
-    } else {
-      isLoggedIn = false;
-      currentUser = null;
-      updateAuthButton();
-    }
-  });
-</script>
-<!-- Firebase SDK v8 (legacy) - Add this before </body> -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-<!-- Your existing Firebase config and init script goes here (it's already correct) -->
-<script>
-  // Initialize Firebase (your existing code)
-  const firebaseConfig = {
-    apiKey: "AIzaSyChh8kT1qmGZ6a6THiLz1CC93JSqCgsPrc",
-    authDomain: "cheapsteam-b7ac0.firebaseapp.com",
-    databaseURL: "https://cheapsteam-b7ac0-default-rtdb.firebaseio.com",
-    projectId: "cheapsteam-b7ac0",
-    storageBucket: "cheapsteam-b7ac0.firebasestorage.app",
-    messagingSenderId: "636932131547",
-    appId: "1:636932131547:web:4c48ff9fb447b56c7c5afe"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const database = firebase.database();
-  // Authentication state listener (your existing code)
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      isLoggedIn = true;
-      currentUser = {
-        email: user.email,
-        username: user.displayName || user.email.split('@')[0],
-        uid: user.uid
-      };
-      updateAuthButton();
-      if (currentPage === 'account') updateAccountPage();
-    } else {
-      isLoggedIn = false;
-      currentUser = null;
-      updateAuthButton();
-    }
-  });
-</script>
-</body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99709a22e58459d8',t:'MTc2MTg4Njk2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
